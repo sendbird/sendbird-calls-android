@@ -18,8 +18,8 @@ dependencies {
 }
 ```
 
-## Initialize the `SendBirdCall` instance in a client app
-As shown below, the SendBirdCall instance must be initiated when a client app is launched. If another initialization with another APP_ID takes place, all existing data will be deleted and the SendBirdCall instance will be initialized with the new APP_ID.
+## Initialize the SendBirdCall instance in a client app
+As shown below, the `SendBirdCall` instance must be initiated when a client app is launched. If another initialization with another APP_ID takes place, all existing data will be deleted and the `SendBirdCall` instance will be initialized with the new APP_ID.
 ```java
 SendBirdCall.init(getContext(), APP_ID);
 ```
