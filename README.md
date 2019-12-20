@@ -11,7 +11,7 @@ When implemented, the SendBird Calls SDK provides the framework to both make and
 * Java 8 or later
 
 ```groovy
-build.gradle(app)
+// build.gradle(app)
 android {
     defaultConfig {
         minSdkVersion 16
