@@ -224,10 +224,10 @@ call.setListener(new DirectCallListener() {
 ```
 
 ## Retrieve a call information
-The local or remote user’s information is available via the directCall.getLocalUser() and directCall.getRemoteUser() methods.
+The local or remote user’s information is available via the `directCall.getLocalUser()` and `directCall.getRemoteUser()` methods.
 
 ## Retrieve call history
-A user’s call history is available via a DirectCallLogListQuery instance.
+A user’s call history is available via a `DirectCallLogListQuery` instance.
 
 ```java
 DirectCallLogListQuery.Params params = new DirectCallLogListQuery.Params();
