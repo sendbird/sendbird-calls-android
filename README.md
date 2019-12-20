@@ -32,6 +32,27 @@ dependencies {
 }
 ```
 
+## Android Permissions
+The SDK’s manifest declares the permissions required to access audio and video via the microphone and camera, as shown here:
+
+```manifest
+<uses-feature android:name="android.hardware.camera" />
+<uses-feature android:name="android.hardware.camera.autofocus" />
+<uses-feature android:glEsVersion="0x00020000" android:required="true" />
+
+<uses-permission android:name="android.permission.CAMERA" />
+<uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+<uses-permission android:name="android.permission.RECORD_AUDIO" />
+<uses-permission android:name="android.permission.BLUETOOTH" />
+<uses-permission android:name="android.permission.INTERNET" />
+<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+```
+Among these, the `CAMERA`, `RECORD_AUDIO` and `WRITE_EXTERNAL_STORAGE` permissions are classified as “dangerous,” and therefore require that the end user approves each permission at runtime (on Android 6.0 and higher).
+
+<br />
+For more information about requesting app permissions, see: [Official Android Document](https://developer.android.com/training/permissions/requesting.html)
+
 ## Initialize the SendBirdCall instance in a client app
 As shown below, the `SendBirdCall` instance must be initiated when a client app is launched. If another initialization with another APP_ID takes place, all existing data will be deleted and the `SendBirdCall` instance will be initialized with the new APP_ID.
 ```java
