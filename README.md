@@ -36,10 +36,6 @@ dependencies {
 The SDK’s manifest declares the permissions required to access audio and video via the microphone and camera, as shown here:
 
 ```manifest
-<uses-feature android:name="android.hardware.camera" />
-<uses-feature android:name="android.hardware.camera.autofocus" />
-<uses-feature android:glEsVersion="0x00020000" android:required="true" />
-
 <uses-permission android:name="android.permission.CAMERA" />
 <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
 <uses-permission android:name="android.permission.RECORD_AUDIO" />
