@@ -10,6 +10,20 @@ When implemented, the SendBird Calls SDK provides the framework to both make and
 * Android 4.1 (API level 16) or later
 * Java 8 or later
 
+```groovy
+build.gradle(app)
+android {
+    defaultConfig {
+        minSdkVersion 16
+    }
+    
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+```
+
 ## Install and configure the SDK
 Download and install the SDK using Gradle.
 ```groovy
@@ -37,7 +51,7 @@ SendBirdCall.authenticate(params, new AuthenticateHandler() {
     @Override
     public void onResult(User user, SendBirdException e) {
         if (e == null) {
-            //The user is authenticated successfully
+            // The user is authenticated successfully
         }
     }
 });
@@ -123,6 +137,28 @@ DirectCall call = SendBirdCall.dial(CALLEE_ID, false, new CallOptions(), new Dia
         if (e == null) {
             // The call has been created successfully.
         }
+    }
+});
+
+call.setListener(new DirectCallListener() {
+    @Override
+    public void onEstablished(DirectCall call) {
+        
+    }
+
+    @Override
+    public void onConnected(DirectCall call) {
+        
+    }
+
+    @Override
+    public void onEnded(DirectCall call) {
+
+    }
+
+    @Override
+    public void onRemoteAudioSettingsChanged(DirectCall call) {
+
     }
 });
 ```
