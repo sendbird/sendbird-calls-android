@@ -180,7 +180,6 @@ call.setListener(new DirectCallListener() {
 });
 ```
 
-> Note: Video call will be available later.
 
 ## Receive a call
 Receive incoming calls by registering the `SendBirdCallListener`. Accept or decline incoming calls using the `directCall.accept()` or the `directCall.end()` methods. If the call is accepted, a media session will be established by the SDK. The `directCall.setListener()` must be registered through the event handler before accepting a call. Once registered, this listener enables reacting to mid-call events via callbacks methods.
