@@ -36,15 +36,13 @@ dependencies {
 The SDK’s manifest declares the permissions required to access audio and video via the microphone and camera, as shown here:
 
 ```manifest
-<uses-permission android:name="android.permission.CAMERA" />
 <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
 <uses-permission android:name="android.permission.RECORD_AUDIO" />
 <uses-permission android:name="android.permission.BLUETOOTH" />
 <uses-permission android:name="android.permission.INTERNET" />
-<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 ```
-Among these, the `CAMERA`, `RECORD_AUDIO` and `WRITE_EXTERNAL_STORAGE` permissions are classified as “dangerous,” and therefore require that the end user approves each permission at runtime (on Android 6.0 and higher).
+Among these, the `RECORD_AUDIO` permission is classified as “dangerous,” and therefore require that the end user approves each permission at runtime (on Android 6.0 and higher).
 
 <br />
 For more information about requesting app permissions, see: Official Android Document - https://developer.android.com/training/permissions/requesting.html
