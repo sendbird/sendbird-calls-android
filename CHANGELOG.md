@@ -1,7 +1,7 @@
 ## Change Log
 
-### 0.6.1
-    * Removed unnecessary Android permissions.
+### 0.6.1 (Dec 26, 2019)
+* Removed unnecessary Android permissions.
 
-### 0.6.0
-    * Early Access release.
+### 0.6.0 (Dec 20, 2019)
+* Early Access release.
