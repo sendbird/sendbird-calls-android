@@ -28,7 +28,7 @@ android {
 Download and install the SDK using Gradle.
 ```groovy
 dependencies {
-    implementation 'com.sendbird.sdk:sendbird-calls:0.6.0'
+    implementation 'com.sendbird.sdk:sendbird-calls:0.6.1'
 }
 ```
 
