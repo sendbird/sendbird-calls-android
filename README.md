@@ -16,7 +16,7 @@ android {
     defaultConfig {
         minSdkVersion 16
     }
-    
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -216,7 +216,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
     public void onMessageReceived(@NonNull RemoteMessage remoteMessage) {
         if (SendBirdCall.handleFirebaseMessageData(remoteMessage.getData())) {
         } else {
-            // handle non-SendBirdCall Firebase messages.
+            // Handle non-SendBirdCall Firebase messages.
         }
     }
 }
@@ -227,13 +227,13 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 While a call is in progress, mute or unmute the caller’s microphone using the `directCall.muteMicrophone()` or `directCall.unmuteMicrophone()` method(s). If the callee changes their audio settings, the caller is notified via the `DirectCallListener.onRemoteAudioSettingsChanged()` listener.
 
 ```java
-// mute my microphone
+// Mute my microphone
 call.muteMicrophone();
 
-// unmute my microphone
+// Unmute my microphone
 call.unmuteMicrophone();
 
-// receives the event
+// Receives the event
 call.setListener(new DirectCallListener() {
     ...
     @Override
@@ -255,10 +255,10 @@ call.setListener(new DirectCallListener() {
 A caller can end a call using the `directCall.end()` method. The event can then be processed via the `DirectCallListener.onEnded()` listener. This listener is also called/fired when the callee ends the call.
 
 ```java
-// end a call
+// End a call
 call.end();
 
-// receives the event
+// Receives the event
 call.setListener(new DirectCallListener() {
     ...
     @Override
@@ -285,7 +285,7 @@ query.next(new DirectCallLogListQueryResultHandler() {
         if (e == null) {
             if (query.hasNext() && !query.isLoading()) {
                 // query.next() can be called once more.
-                // if a user wants to fetch more call logs.
+                // If a user wants to fetch more call logs.
             }
         }
     }
