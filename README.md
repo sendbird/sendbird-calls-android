@@ -50,7 +50,7 @@ For more information about requesting app permissions, see: Official Android Doc
 ## Initialize the SendBirdCall instance in a client app
 As shown below, the `SendBirdCall` instance must be initiated when a client app is launched. If another initialization with another APP_ID takes place, all existing data will be deleted and the `SendBirdCall` instance will be initialized with the new APP_ID.
 ```java
-SendBirdCall.init(getContext(), APP_ID);
+SendBirdCall.init(getApplicationContext(), APP_ID);
 ```
 
 ## Authenticate a user and register a push token
@@ -302,7 +302,7 @@ query.next(new DirectCallLogListQueryResultHandler() {
 |Params.endResults | Returns the call logs for specified results. If you specify more than one result, they are processed as OR condition and all call logs corresponding with the specified end results will be returned. For example, setEndResults(NO_ANSWER, CANCELED), only the NO_ANSWER and CANCELED call logs will be returned.|
 
 ## Additional information: call results
-| EndResult        | Description                                                                                                            |
+| DirectCallEndResult  | Description                                                                                                            |
 |------------------|------------------------------------------------------------------------------------------------------------------------|
 | NO_ANSWER            | The callee hasn’t either accepted or declined the call for a specific period of time.                              |
 | CANCELED             | The caller has canceled the call before the callee accepts or declines.                                            |
