@@ -1,5 +1,8 @@
 ## Change Log
 
+### 0.8.1 (Mar 9, 2020)
+* Improved stability.
+
 ### 0.8.0 (Mar 9, 2020)
 * Added video call feature.
     * Added `SendBirdVideoView` class.
