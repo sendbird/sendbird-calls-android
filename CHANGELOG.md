@@ -1,5 +1,16 @@
 ## Change Log
 
+### 0.8.0 (Mar 9, 2020)
+* Added video call feature.
+    * Added `SendBirdVideoView` class.
+    * Added `isLocalVideoEnabled()` and `isRemoteVideoEnabled()` in `DirectCall`.
+    * Added `startVideo()` and `stopVideo()` in `DirectCall`.
+    * Added `setLocalVideoView(SendBirdVideoView videoView)` and `setRemoteVideoView(SendBirdVideoView videoView)` in `DirectCall`.
+    * Added `setLocalVideoView(SendBirdVideoView videoView)`, `setRemoteVideoView(SendBirdVideoView videoView)` and `setVideoEnabled(boolean videoEnabled)` in `CallOptions`.
+    * Added `onRemoteVideoSettingsChanged(DirectCall call)` method in `DirectCallListener`.
+    * Modified `SPEAKER_PHONE` to `SPEAKERPHONE` in `AudioDevice`.
+* Improved stability.
+
 ### 0.7.0 (Feb 20, 2020)
 * Added custom items feature.
     * Added `class AcceptParams`, `class DialParams`, `interface CustomItemsHandler`.
