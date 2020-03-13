@@ -42,6 +42,7 @@ dependencies {
 The SDK requires system permissions. The following permissions allow the SDK to access microphone and use audio, as shown here:
 
 ```manifest
+<uses-permission android:name="android.permission.CAMERA" />
 <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
 <uses-permission android:name="android.permission.RECORD_AUDIO" />
 <uses-permission android:name="android.permission.BLUETOOTH" />
@@ -49,7 +50,7 @@ The SDK requires system permissions. The following permissions allow the SDK to 
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 ```
 
-The `RECORD_AUDIO` permission is one of the `dangerous` permissions and requires user agreement when your client app is first launched on the user’s device running Android 6.0 or higher.
+The `CAMERA` and `RECORD_AUDIO` permissions are one of the `dangerous` permissions and requires user agreement when your client app is first launched on the user’s device running Android 6.0 or higher.
 
 For more information about requesting app permissions, see the Android’s Request App Permissions [guide](https://developer.android.com/training/permissions/requesting.html).
 
@@ -123,20 +124,34 @@ Register a call-specific `DirectCallListener` event handler using the `DirectCal
 ```java
 call.setListener(new DirectCallListener() {
     @Override
-    public void onEstablished(DirectCall call) {
-    }
+    public void onEstablished(DirectCall call) {}
 
     @Override
-    public void onConnected(DirectCall call) {
-    }
+    public void onConnected(DirectCall call) {}
 
     @Override
-    public void onEnded(DirectCall call) {
-    }
+    public void onEnded(DirectCall call) {}
 
     @Override
-    public void onRemoteAudioSettingsChanged(DirectCall call) {
-    }
+    public void onRemoteAudioSettingsChanged(DirectCall call) {}
+
+    @Override
+    public void onRemoteVideoSettingsChanged(DirectCall call) {}
+
+    @Override
+    public void onCustomItemsUpdated(DirectCall call, List<String> updatedKeys) {}
+
+    @Override
+    public void onCustomItemsDeleted(DirectCall call, List<String> deletedKeys) {}
+
+    @Override
+    public void onReconnecting(DirectCall call) {}
+
+    @Override
+    public void onReconnected(DirectCall call) {}
+
+    @Override
+    public void onAudioDeviceChanged(DirectCall call, AudioDevice currentAudioDevice, Set<AudioDevice> availableAudioDevices) {}
 });
 ```
 
@@ -145,13 +160,24 @@ call.setListener(new DirectCallListener() {
 | onEstablished()                | On the caller’s device and the callee’s device, the callee has accepted the call by running the method `call.accept()`, but they are not yet connected to media devices. |
 | onConnected()                  | Media devices (for example, microphone and speakers) between the caller and callee are connected and can start the call using media devices. |
 | onEnded()                      | The call has ended on the caller’s device or the callee’s device. This is triggered automatically when either party runs the method `call.end()`. This event listener is also invoked if there are other reasons for ending the call. A table of which can be seen at the bottom.  |
-| onRemoteAudioSettingsChanged() | On the caller’s devices, the callee changes their audio settings. |
+| onRemoteAudioSettingsChanged() | The remote peer changes his/her audio settings. |
+| onRemoteVideoSettingsChanged() | The remote peer changes his/her video settings. |
+| onCustomItemsUpdated()         | The custom items of `DirectCall` is updated by others. |
+| onCustomItemsDeleted()         | The custom items of `DirectCall` is deleted by others. |
+| onReconnecting()               | `DirectCall` starts to try to connect to the peer after the media connection is disconnected. |
+| onReconnected()                | The media connection is reconnected to the peer. |
+| onAudioDeviceChanged()         | Some audio devices which are currently used are changed. |
+
 
 ## Make a call
-Initiate a call by providing the callee’s user id into the `SendBirdCall.dial()` method. Use the `CallOptions` object to choose initial call configuration. (for example. muted/unmuted)
+Initiate a call by providing `DialParams` which contains the callee’s user id and `CallOptions` into the `SendBirdCall.dial()` method. Use the `CallOptions` object to choose initial call configuration. (for example. muted/unmuted)
 
 ```java
-DirectCall call = SendBirdCall.dial(CALLEE_ID, false, new CallOptions(), new DialHandler() {
+DialParams params = new DialParams(CALLEE_ID);
+params.setVideoCall(true);
+params.setCallOptions(new CallOptions());
+
+DirectCall call = SendBirdCall.dial(params, new DialHandler() {
     @Override
     public void onResult(DirectCall call, SendBirdException e) {
         if (e == null) {
@@ -171,10 +197,6 @@ call.setListener(new DirectCallListener() {
 
     @Override
     public void onEnded(DirectCall call) {
-    }
-
-    @Override
-    public void onRemoteAudioSettingsChanged(DirectCall call) {
     }
 });
 ```
@@ -208,7 +230,7 @@ SendBirdCall.addListener(UNIQUE_HANDLER_ID, new SendBirdCallListener() {
             }
         });
 
-        call.accept(new CallOptions());
+        call.accept(new AcceptParams());
     }
 });
 ```
@@ -229,7 +251,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
 ## Handle a current call
 
-While a call is in progress, mute or unmute the caller’s microphone using the `directCall.muteMicrophone()` or `directCall.unmuteMicrophone()` method(s). If the callee changes their audio settings, the caller is notified via the `DirectCallListener.onRemoteAudioSettingsChanged()` listener.
+While a call is in progress, mute or unmute the caller’s microphone using the `directCall.muteMicrophone()` or `directCall.unmuteMicrophone()` method(s). If the callee changes their audio settings, the caller is notified via the `DirectCallListener.onRemoteAudioSettingsChanged()` listener. And, start or stop video using the `directCall.startVideo()` or `directCall.stopVideo()` method(s). If the callee changes their video settings, the caller is notified via the `DirectCallListener.onRemoteVideoSettingsChanged()` listener.
 
 ```java
 // Mute my microphone
@@ -237,6 +259,12 @@ call.muteMicrophone();
 
 // Unmute my microphone
 call.unmuteMicrophone();
+
+// start to show video
+call.startVideo();
+
+// stop showing video
+call.stopVideo();
 
 // Receives the event
 call.setListener(new DirectCallListener() {
@@ -249,6 +277,15 @@ call.setListener(new DirectCallListener() {
         } else {
             // The peer has been muted.
             // Consider displaying and toggling a muted icon.
+        }
+    }
+
+    @Override
+    public void onRemoteVideoSettingsChanged(DirectCall call) {
+        if (call.isRemoteVideoEnabled()) {
+            // The peer has started video.
+        } else {
+            // The peer has stopped video.
         }
     }
     ...
