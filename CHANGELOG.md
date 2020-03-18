@@ -1,5 +1,9 @@
 ## Change Log
 
+### 0.9.0 (Mar 18, 2020)
+* Changed endpoint domain.
+* Improved stability.
+
 ### 0.8.1 (Mar 9, 2020)
 * Improved stability.
 
