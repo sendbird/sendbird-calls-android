@@ -122,7 +122,7 @@ SendBirdCall.addListener(UNIQUE_HANDLER_ID, new SendBirdCallListener() {
 Register a call-specific `DirectCallListener` event handler using the `DirectCall.addCallListener()` method. Responding to call-specific events (for example, call connected) is then managed as shown below:
 
 ```java
-call.setListener(new DirectCallListener() {
+directCallsetListener(new DirectCallListener() {
     @Override
     public void onEstablished(DirectCall call) {}
 
@@ -157,9 +157,9 @@ call.setListener(new DirectCallListener() {
 
 | Method                         | Invoked when |
 |--------------------------------|--------------|
-| onEstablished()                | On the caller’s device and the callee’s device, the callee has accepted the call by running the method `call.accept()`, but they are not yet connected to media devices. |
+| onEstablished()                | On the caller’s device and the callee’s device, the callee has accepted the call by running the method `directCall.accept()`, but they are not yet connected to media devices. |
 | onConnected()                  | Media devices (for example, microphone and speakers) between the caller and callee are connected and can start the call using media devices. |
-| onEnded()                      | The call has ended on the caller’s device or the callee’s device. This is triggered automatically when either party runs the method `call.end()`. This event listener is also invoked if there are other reasons for ending the call. A table of which can be seen at the bottom.  |
+| onEnded()                      | The call has ended on the caller’s device or the callee’s device. This is triggered automatically when either party runs the method `directCall.end()`. This event listener is also invoked if there are other reasons for ending the call. A table of which can be seen at the bottom.  |
 | onRemoteAudioSettingsChanged() | The remote peer changes his/her audio settings. |
 | onRemoteVideoSettingsChanged() | The remote peer changes his/her video settings. |
 | onCustomItemsUpdated()         | The custom items of `DirectCall` is updated by others. |
@@ -251,23 +251,33 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
 ## Handle a current call
 
-While a call is in progress, mute or unmute the caller’s microphone using the `directCall.muteMicrophone()` or `directCall.unmuteMicrophone()` method(s). If the callee changes their audio settings, the caller is notified via the `DirectCallListener.onRemoteAudioSettingsChanged()` listener. And, start or stop video using the `directCall.startVideo()` or `directCall.stopVideo()` method(s). If the callee changes their video settings, the caller is notified via the `DirectCallListener.onRemoteVideoSettingsChanged()` listener.
+While a call is in progress, mute or unmute the caller’s microphone using the `directCall.muteMicrophone()` or `directCall.unmuteMicrophone()` method(s). If the callee changes their audio settings, the caller is notified via the `DirectCallListener.onRemoteAudioSettingsChanged()` listener. And, start or stop video using the `directCall.startVideo()` or `directCall.stopVideo()` method(s). If the callee changes their video settings, the caller is notified via the `DirectCallListener.onRemoteVideoSettingsChanged()` listener. And switch the camera between the front and the back camera using `directCall.switchCamera(CompletionHandler)`.
 
 ```java
-// Mute my microphone
-call.muteMicrophone();
+// mutes my microphone
+directCall.muteMicrophone();
 
-// Unmute my microphone
-call.unmuteMicrophone();
+// unmutes my microphone
+directCall.unmuteMicrophone();
 
-// start to show video
-call.startVideo();
+// starts to show video
+directCall.startVideo();
 
-// stop showing video
-call.stopVideo();
+// stops showing video
+directCall.stopVideo();
 
-// Receives the event
-call.setListener(new DirectCallListener() {
+// switches camera
+directCall.switchCamera(new CompletionHandler() {
+    @Override
+    public void onResult(SendBirdException e) {
+        if (e != null) {
+            Log.e(TAG, "switchCamera(e: " + e.getMessage() + ")");
+        }
+    }
+});
+
+// receives the event
+directCall.setListener(new DirectCallListener() {
     ...
     @Override
     public void onRemoteAudioSettingsChanged(DirectCall call) {
@@ -290,7 +300,6 @@ call.setListener(new DirectCallListener() {
     }
     ...
 });
-
 ```
 
 ## End a call
@@ -298,10 +307,10 @@ A caller can end a call using the `directCall.end()` method. The event can then 
 
 ```java
 // End a call
-call.end();
+directCall.end();
 
 // Receives the event
-call.setListener(new DirectCallListener() {
+directCall.setListener(new DirectCallListener() {
     ...
     @Override
     public void onEnded(DirectCall call) {
