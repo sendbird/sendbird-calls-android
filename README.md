@@ -344,7 +344,7 @@ query.next(new DirectCallLogListQueryResultHandler() {
 | Params.endResults | Returns the call logs for specified results. If you specify more than one result, they are processed as `OR` condition and all call logs corresponding with the specified end results will be returned. For example, `setEndResults(NO_ANSWER, CANCELED)`, only the `NO_ANSWER` and `CANCELED` call logs will be returned. |
 
 ## Additional information: call results
-)
+
 To access the additional information relating to why a call ended, consider that you can call `directCall.getEndResult()` whenever needed. However, it would be most relevant perhaps, to call it within the `onEnded()` callback.  
 
 | DirectCallEndResult   | Description |
