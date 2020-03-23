@@ -344,7 +344,7 @@ query.next(new DirectCallLogListQueryResultHandler() {
 | Params.endResults | Returns the call logs for specified results. If you specify more than one result, they are processed as `OR` condition and all call logs corresponding with the specified end results will be returned. For example, `setEndResults(NO_ANSWER, CANCELED)`, only the `NO_ANSWER` and `CANCELED` call logs will be returned. |
 
 ## Additional information: call results
-
+)
 To access the additional information relating to why a call ended, consider that you can call `directCall.getEndResult()` whenever needed. However, it would be most relevant perhaps, to call it within the `onEnded()` callback.  
 
 | DirectCallEndResult   | Description |
@@ -358,3 +358,14 @@ To access the additional information relating to why a call ended, consider that
 | DIAL_FAILED           | The `dial()` method call has failed. |
 | ACCEPT_FAILED         | The `accept()` method call has failed. |
 | OTHER_DEVICE_ACCEPTED | When the call is accepted on one of the callee’s devices, all the other devices will receive this call result. |
+
+## Additional information: thread options
+
+As shown below, there are two types of `ThreadOption`s in SendBirdCall SDK, which are `UI_THREAD` and `HANDLER`. If `ThreadOption` is set to `UI_THREAD`, every callback will be called on the UI thread, and vice versa. `UI_THREAD` is set by default. 
+
+```java
+SendBirdCall.Options.setThreadOption(SendBirdCall.Options.ThreadOption.UI_THREAD, null);
+
+Handler myHandler = new Handler();
+SendBirdCall.Options.setThreadOption(SendBirdCall.Options.ThreadOption.HANDLER, myHandler);
+```
