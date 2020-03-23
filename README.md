@@ -167,7 +167,6 @@ directCallsetListener(new DirectCallListener() {
 | onReconnecting()               | `DirectCall` started attempting to reconnect to the other party after a media connection disruption. |
 | onReconnected()                | The disrupted media connection reconnected. |
 | onAudioDeviceChanged()         | The audio device used in the call has changed. |
-| onVideoDeviceChanged()         | The video device used in the call has changed. |
 
 
 ## Make a call
