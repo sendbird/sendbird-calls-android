@@ -6,7 +6,7 @@
 [![Commercial License](https://img.shields.io/badge/license-Commercial-brightgreen.svg)](https://github.com/sendbird/sendbird-calls-android/blob/master/LICENSE.md)
 
 ## Introduction
-`SendBird Calls` is the latest addition to our product portfolio. It enables real-time calls between users within your SendBird application. SDKs are provided for iOS, Android, and JavaScript. Using any one of these, developers can quickly integrate voice and video call functions into their own client apps, allowing users to make and receive web-based real-time voice and video calls on the SendBird platform.
+`SendBird Calls` is the latest addition to our product portfolio. It enables real-time calls between users within a SendBird application. SDKs are provided for iOS, Android, and JavaScript. Using any one of these, developers can quickly integrate voice and video call functions into their own client apps, allowing users to make and receive web-based real-time voice and video calls on the SendBird platform.
 
 ## Functional Overview
 The SendBird Calls Android SDK provides a framework to make and receive voice and video calls. “Direct calls” in the SDK refers to one-to-one calls, comparable to “direct messages” (DMs) in messaging services. To make a direct voice or video call, the caller specifies the user ID of the intended callee, and dials. Upon dialing, all of the callee’s authenticated devices will receive incoming call notifications. The callee then can choose to accept the call from any one of the devices. When the call is accepted, a connection is established between the caller and the callee. This marks the start of the direct call. Call participants may mute themselves, as well as select the audio and video hardware used in the call. Calls may be ended by either party. The SendBird Dashboard displays call logs in the Calls menu for application owners and admins to review.
@@ -99,10 +99,10 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 ```
 
 ## Register event handlers
-The SDK provides two types of event handlers for various events that your cliant app may respond to: `SendBirdCallListener` and `DirectCallListener.`
+The SDK provides two types of event handlers for various events that client apps may respond to: `SendBirdCallListener` and `DirectCallListener.`
 
 ### SendBirdCallListener
-Register a device-specific `SendBirdCallListener` event handler using the `SendBirdCall.addSendBirdCallListener()` method. Prior to adding `SendBirdCallListener`, users will be unable to handle the `onRinging()` callback event. It is therefore recommended that this event handler be added during app initialization.  `SendBirdCallListener` is removed upon app termination. After the `SendBirdCallListener` is added, responding to device-wide events (e.g. incoming calls) is handled as shown below:
+Register a device-specific `SendBirdCallListener` event handler using the `SendBirdCall.addListener()` method. Prior to this, the `onRinging()` event cannot be detected. It is therefore recommended that this event handler be added during  initialization.  `SendBirdCallListener` is removed upon app termination. After `SendBirdCallListener` is added, responding to device-wide events (e.g. incoming calls) is handled as shown below:
 
 ```java
 SendBirdCall.addListener(UNIQUE_HANDLER_ID, new SendBirdCallListener() {
@@ -112,11 +112,11 @@ SendBirdCall.addListener(UNIQUE_HANDLER_ID, new SendBirdCallListener() {
 });
 ```
 
-`UNIQUE_HANDLER_ID` is any unique string value (for example, UUID).
+`UNIQUE_HANDLER_ID` is any unique string value (e.g. UUID).
 
 | Method      | Invoked when                                        |
 |-------------|-----------------------------------------------------|
-| onRinging() | Incoming calls are received in the callee’s device. |
+| onRinging() | Incoming calls are received on the callee’s device. |
 
 ### DirectCallListener
 Register a call-specific `DirectCallListener` event handler using the `DirectCall.addCallListener()` method. Responding to call-specific events (e.g. sucessfull call connection) is then handled as shown below:
@@ -170,7 +170,7 @@ directCallsetListener(new DirectCallListener() {
 
 
 ## Make a call
-Initiate a call by first preparing the `DialParams` call parameter object.  This contains the intended callee’s user id, weather or not it is a video call, as well as a `CallOptions` object.  `CallOptions` is used to set the call’s initial configuration (e.g. muted/unmuted). Once prepared, the `DialParams` object is then passed into the `SendBirdCall.dial()` method to starting making a call.
+Initiate a call by first preparing the `DialParams` call parameter object.  This contains the intended callee’s user id, whether or not it is a video call, as well as a `CallOptions` object.  `CallOptions` is used to set the call’s initial configuration (e.g. muted/unmuted). Once prepared, the `DialParams` object is then passed into the `SendBirdCall.dial()` method to starting making a call.
 ```java
 DialParams params = new DialParams(CALLEE_ID);
 params.setVideoCall(true);
@@ -201,7 +201,7 @@ call.setListener(new DirectCallListener() {
 ```
 
 ## Receive a call
-Receive incoming calls by first registering `SendBirdCallListener`. Accept or decline incoming calls using the `directCall.accept()` or the `directCall.end()` methods. If the call is accepted, a media session will automatically be established by the SDK.
+Receive incoming calls by first registering `SendBirdCallListener`. Accept or decline incoming calls using the `directCall.accept()` or the `directCall.end()` methods. If the call is accepted, a media session will automatically be established.
 
 Before accepting any calls, the `directCall.setListener()` must be registered upfront in the `SendBirdCallListener` . Once registered,  `directCall.setListener()` enables reacting to in-call events via callbacks methods.
 
