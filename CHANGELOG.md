@@ -1,8 +1,5 @@
 ## Change Log
 
-### 1.0.0 (Mar 24, 2020)
-* Added `switchCamera(CompletionHandler handler)` in `DirectCall`.
-
 ### 0.9.0 (Mar 18, 2020)
 * Changed endpoint domain.
 * Improved stability.
