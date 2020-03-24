@@ -1,5 +1,9 @@
 ## Change Log
 
+### 1.0.0 (Mar 24, 2020)
+* Added `switchCamera()` in `DirectCall`.
+* Improved stability.
+
 ### 0.9.0 (Mar 18, 2020)
 * Changed endpoint domain.
 * Improved stability.
