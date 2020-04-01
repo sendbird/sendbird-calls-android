@@ -1,5 +1,8 @@
 ## Change Log
 
+### 1.0.1 (Apr 1, 2020)
+* Removed duplicated `Kotlin` standard library from SDK for kotlin user.
+
 ### 1.0.0 (Mar 24, 2020)
 * Added `switchCamera()` in `DirectCall`.
 * Improved stability.
