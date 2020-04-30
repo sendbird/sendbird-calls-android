@@ -1,5 +1,16 @@
 ## Change Log
 
+### 1.0.2 (Apr 30, 2020)
+* Added video device selection features.
+    * Added `VideoDevice` class which represents a video device for video stream.
+    * Added `selectVideoDevice(VideoDevice videoDevice, CompletionHandler handler)` in `DirectCall`. 
+    * Added `List<VideoDevice> getAvailableVideoDevices()` in `DirectCall`.
+* Added `void setRingingTimeout(int timeout)` in `SendBirdCall.Options`.
+* Modified to keep the `SendBirdCallListener` instances after changing app ID. 
+* Deprecated `setPushToken(String pushToken, boolean unique)` in `AuthenticateParams`. Please use `registerPushToken(String pushToken, boolean unique, CompletionHandler handler)` instead.
+* Optimized video call frame rate.
+* Improved stability.
+
 ### 1.0.1 (Apr 1, 2020)
 * Removed duplicated `Kotlin` standard library from SDK for kotlin user.
 
