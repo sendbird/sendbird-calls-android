@@ -1,5 +1,10 @@
 ## Change Log
 
+### 1.0.3 (May 1, 2020)
+* Modified to use error codes of server if it exists instead of SDK internal error.
+* Added server error codes to `SendBirdError`.
+* Improved stability.
+
 ### 1.0.2 (Apr 30, 2020)
 * Added video device selection features.
     * Added `VideoDevice` class which represents a video device for video stream.
