@@ -54,6 +54,16 @@ The `CAMERA` and `RECORD_AUDIO` permissions are classified as `dangerous`  and r
 
 For more information about requesting app permissions, see  Android’s Request App Permissions [guide](https://developer.android.com/training/permissions/requesting.html).
 
+## (Optional) Configure ProGuard to shrink code and resources
+When you build your APK with `minifyEnabled true`, add the following line to the module's ProGuard rules file.
+```
+# SendBird Calls SDK
+-keep class com.sendbird.calls.** { *; }
+-keep class org.webrtc.** { *; }
+-dontwarn org.webrtc.**
+-keepattributes InnerClasses
+```
+
 ## Initialize the SendBirdCall instance in a client app
 As shown below, the `SendBirdCall` instance must be initiated when a client app is launched. If another initialization with another `APP_ID` takes place, all existing data will be deleted and the `SendBirdCall` instance will be initialized with the new `APP_ID`.
 
