@@ -1,5 +1,12 @@
 ## Change Log
 
+### 1.1.0 (May 21, 2020)
+* Deprecated `deauthenticate(String pushToken, CompletionHandler handler)` in `SendBirdCall`. Please use `deauthenticate(CompletionHandler handler)` instead.
+* Added `LOGGER_WARNING` and `LOGGER_INFO` in `SendBirdCall`
+* Added `getCallLog()` and `getCurrentVideoDevice()` in `DirectCall`.
+* Added `isFromServer()` in `DirectCallLog`.
+* Improved stability.
+
 ### 1.0.3 (May 1, 2020)
 * Modified to use error codes of server if it exists instead of SDK internal error.
 * Added server error codes to `SendBirdError`.
