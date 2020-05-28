@@ -1,5 +1,8 @@
 ## Change Log
 
+### 1.1.1 (May 28, 2020)
+* Added `void setPreferredAudioSource(int audioSource)` in `SendBirdCall.Options`.
+
 ### 1.1.0 (May 21, 2020)
 * Deprecated `deauthenticate(String pushToken, CompletionHandler handler)` in `SendBirdCall`. Please use `deauthenticate(CompletionHandler handler)` instead.
 * Added `LOGGER_WARNING` and `LOGGER_INFO` in `SendBirdCall`
