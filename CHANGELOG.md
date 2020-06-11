@@ -1,5 +1,9 @@
 ## Change Log
 
+### 1.1.2 (Jun 11, 2020)
+* Added `handleWebhookCommand(String payload)` in `SendBirdCall`.
+* Improved stability.
+
 ### 1.1.1 (May 28, 2020)
 * Added `void setPreferredAudioSource(int audioSource)` in `SendBirdCall.Options`.
 
