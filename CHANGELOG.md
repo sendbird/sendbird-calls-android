@@ -1,5 +1,8 @@
 ## Change Log
 
+### 1.1.3 (Jun 15, 2020)
+* Improved stability.
+
 ### 1.1.2 (Jun 11, 2020)
 * Added `handleWebhookCommand(String payload)` in `SendBirdCall`.
 * Improved stability.
