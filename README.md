@@ -377,7 +377,7 @@ Information relating the end result of a call can be obtained at any time via th
 | ACCEPT_FAILED         | The `accept()` method call has failed. |
 | OTHER_DEVICE_ACCEPTED | The incoming call was accepted on a different device. This device received an incoming call notification, but the call ended when a different device accepted it. |
 
-## Additional information: encoding parameters
+## Additional information: encoding configurations
 
 | Category           | Value | Note                    |
 |--------------------|-------|-------------------------|
