@@ -377,6 +377,15 @@ Information relating the end result of a call can be obtained at any time via th
 | ACCEPT_FAILED         | The `accept()` method call has failed. |
 | OTHER_DEVICE_ACCEPTED | The incoming call was accepted on a different device. This device received an incoming call notification, but the call ended when a different device accepted it. |
 
+## Additional information: encoding parameters
+
+| Category           | Value | Note                    |
+|--------------------|-------|-------------------------|
+| Frames per second  | 24    |                         |
+| Maximum resolution | 720p  | 1280 x 720; standard HD |
+| Audio codec        | OPUS  |                         |
+| Video codec        | VP8   |                         |
+
 ## Additional information: thread options
 
 As shown below, there are two types of `ThreadOption`s in the SendBirdCall SDK: `UI_THREAD` and `HANDLER`. If `ThreadOption` is set to `UI_THREAD`, every callback will be called on the UI thread, and vice versa. `UI_THREAD` is set by default. 
