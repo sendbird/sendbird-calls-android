@@ -6,14 +6,17 @@
 [![Commercial License](https://img.shields.io/badge/license-Commercial-brightgreen.svg)](https://github.com/sendbird/sendbird-calls-android/blob/master/LICENSE.md)
 
 ## Introduction
+
 `SendBird Calls` is the latest addition to our product portfolio. It enables real-time calls between users within a SendBird application. SDKs are provided for iOS, Android, and JavaScript. Using any one of these, developers can quickly integrate voice and video call functions into their own client apps, allowing users to make and receive web-based real-time voice and video calls on the SendBird platform.
 
-> If you need any helps or have any issue / question, please visit [our community](https://community.sendbird.com) 
+> If you need any helps or have any issue / question, please visit [our community](https://community.sendbird.com)
 
 ## Functional Overview
+
 The SendBird Calls Android SDK provides a framework to make and receive voice and video calls. “Direct calls” in the SDK refers to one-to-one calls, comparable to “direct messages” (DMs) in messaging services. To make a direct voice or video call, the caller specifies the user ID of the intended callee, and dials. Upon dialing, all of the callee’s authenticated devices will receive incoming call notifications. The callee then can choose to accept the call from any one of the devices. When the call is accepted, a connection is established between the caller and the callee. This marks the start of the direct call. Call participants may mute themselves, as well as select the audio and video hardware used in the call. Calls may be ended by either party. The SendBird Dashboard displays call logs in the Calls menu for application owners and admins to review.
 
 ## SDK Prerequisites
+
 * Android 4.1 (API level 16) or later
 * Java 8 or later
 
@@ -32,6 +35,7 @@ android {
 ```
 
 ## Install and configure the SDK
+
 Download and install the SDK using `Gradle`.
 
 ```groovy
@@ -41,6 +45,7 @@ dependencies {
 ```
 
 ## Grant system permissions to the SDK
+
 The SDK requires system permissions. The following permissions allow the SDK to access the microphone and use audio, as shown here:
 
 ```manifest
@@ -57,6 +62,7 @@ The `CAMERA` and `RECORD_AUDIO` permissions are classified as `dangerous`  and r
 For more information about requesting app permissions, see  Android’s Request App Permissions [guide](https://developer.android.com/training/permissions/requesting.html).
 
 ## (Optional) Configure ProGuard to shrink code and resources
+
 When you build your APK with `minifyEnabled true`, add the following line to the module's ProGuard rules file.
 ```
 # SendBird Calls SDK
@@ -67,6 +73,7 @@ When you build your APK with `minifyEnabled true`, add the following line to the
 ```
 
 ## Initialize the SendBirdCall instance in a client app
+
 As shown below, the `SendBirdCall` instance must be initiated when a client app is launched. If another initialization with another `APP_ID` takes place, all existing data will be deleted and the `SendBirdCall` instance will be initialized with the new `APP_ID`.
 
 ```java
@@ -111,9 +118,11 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 ```
 
 ## Register event handlers
+
 The SDK provides two types of event handlers for various events that client apps may respond to: `SendBirdCallListener` and `DirectCallListener.`
 
 ### SendBirdCallListener
+
 Register a device-specific `SendBirdCallListener` event handler using the `SendBirdCall.addListener()` method. Prior to this, the `onRinging()` event cannot be detected. It is therefore recommended that this event handler be added during  initialization.  `SendBirdCallListener` is removed upon app termination. After `SendBirdCallListener` is added, responding to device-wide events (e.g. incoming calls) is handled as shown below:
 
 ```java
@@ -131,6 +140,7 @@ SendBirdCall.addListener(UNIQUE_HANDLER_ID, new SendBirdCallListener() {
 | onRinging() | Incoming calls are received on the callee’s device. |
 
 ### DirectCallListener
+
 Register a call-specific `DirectCallListener` event handler using the `DirectCall.addCallListener()` method. Responding to call-specific events (e.g. sucessfull call connection) is then handled as shown below:
 
 ```java
@@ -180,9 +190,10 @@ directCallsetListener(new DirectCallListener() {
 | onReconnected()                | The disrupted media connection reconnected. |
 | onAudioDeviceChanged()         | The audio device used in the call has changed. |
 
-
 ## Make a call
+
 Initiate a call by first preparing the `DialParams` call parameter object.  This contains the intended callee’s user id, whether or not it is a video call, as well as a `CallOptions` object.  `CallOptions` is used to set the call’s initial configuration (e.g. muted/unmuted). Once prepared, the `DialParams` object is then passed into the `SendBirdCall.dial()` method to starting making a call.
+
 ```java
 DialParams params = new DialParams(CALLEE_ID);
 params.setVideoCall(true);
@@ -213,6 +224,7 @@ call.setListener(new DirectCallListener() {
 ```
 
 ## Receive a call
+
 Receive incoming calls by first registering `SendBirdCallListener`. Accept or decline incoming calls using the `directCall.accept()` or the `directCall.end()` methods. If the call is accepted, a media session will automatically be established.
 
 Before accepting any calls, the `directCall.setListener()` must be registered upfront in the `SendBirdCallListener` . Once registered,  `directCall.setListener()` enables reacting to in-call events via callbacks methods.
@@ -312,6 +324,7 @@ directCall.setListener(new DirectCallListener() {
 ```
 
 ## End a call
+
 A caller may end a call using the `directCall.end()` method. The event can then be processed via the `DirectCallListener.onEnded()` listener. This listener is also triggered if the callee ends the call.
 
 ```java
@@ -330,9 +343,11 @@ directCall.setListener(new DirectCallListener() {
 ```
 
 ## Retrieve a call information
+
 The local or remote user’s information is available via the `directCall.getLocalUser()` and `directCall.getRemoteUser()` methods.
 
 ## Retrieve call history
+
 The SendBird server automatically stores details of calls, which can be used later to display a call history for users. A user’s call history is available via a `SendBirdCall.DirectCallLogListQuery()` instance.
 
 ```java
@@ -360,6 +375,57 @@ query.next(new DirectCallLogListQueryResultHandler() {
 | Params.limit      | Specifies the number of call history entries to return at once. |
 | Params.myRole     | Returns the call history of the specified role. (e.g. the `setMyRole(Callee)` returns only the callee’s call history.) |
 | Params.endResults | Filters the results based on the call end result (e.g. `COMPLETED`,`NO_ANSWER`,etc.) If multiple values are specified, they are processed as an `OR` condition. For example, `setEndResults(NO_ANSWER, CANCELED)`, only the history entries that resulted in `NO_ANSWER` or `CANCELED` will be returned. |
+
+## Creating a local video view before accepting incoming calls
+
+You can create how the current user’s local video view will show on the screen before accepting an incoming call. Customize the current user’s local video view by following the steps below:
+
+1. Start your call activity with an incoming call ID in the `onRinging()` method within the class where you implement code for receiving a call.
+2. Get the `DirectCall` object with the incoming call ID within the `onCreate()` method of the call activity class.
+3. Get the `SendBirdVideoView` object from the xml file of your call activity to add a local video view.
+4. Call the `DirectCall.setLocalVideoView()` method by using the `SendBirdVideoView` object within the call activity class.
+
+```java
+// {YourApplication}.java
+SendBirdCall.addListener(UUID.randomUUID().toString(), new SendBirdCallListener() {
+    @Override
+    public void onRinging(DirectCall call) {
+        ...
+        Intent intent = new Intent(context, YourCallActivity.class);
+        intent.putExtra("EXTRA_INCOMING_CALL_ID", call.getCallId());
+        ...
+        getApplicationContext().startActivity(intent);
+    }
+});
+
+// {YourCallActivity}.java
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    ...
+    String callId = getIntent().getStringExtra("EXTRA_INCOMING_CALL_ID");
+    DirectCall call = SendBirdCall.getCall(callId);
+    ...
+    SendBirdVideoView localVideoView = findViewById(R.id.video_view_fullscreen);
+    call.setLocalVideoView(localVideoView);
+    ...
+}
+```
+
+```xml
+// {activity_your_call}.xml
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    ...
+    <com.sendbird.calls.SendBirdVideoView
+        android:id="@+id/video_view_fullscreen"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+    ...
+</RelativeLayout>
+```
 
 ## Additional information: call results
 
