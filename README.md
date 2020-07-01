@@ -376,57 +376,6 @@ query.next(new DirectCallLogListQueryResultHandler() {
 | Params.myRole     | Returns the call history of the specified role. (e.g. the `setMyRole(Callee)` returns only the callee’s call history.) |
 | Params.endResults | Filters the results based on the call end result (e.g. `COMPLETED`,`NO_ANSWER`,etc.) If multiple values are specified, they are processed as an `OR` condition. For example, `setEndResults(NO_ANSWER, CANCELED)`, only the history entries that resulted in `NO_ANSWER` or `CANCELED` will be returned. |
 
-## Creating a local video view before accepting incoming calls
-
-You can create how the current user’s local video view will show on the screen before accepting an incoming call. Customize the current user’s local video view by following the steps below:
-
-1. Start your call activity with an incoming call ID in the `onRinging()` method within the class where you implement code for receiving a call.
-2. Get the `DirectCall` object with the incoming call ID within the `onCreate()` method of the call activity class.
-3. Get the `SendBirdVideoView` object from the xml file of your call activity to add a local video view.
-4. Call the `DirectCall.setLocalVideoView()` method by using the `SendBirdVideoView` object within the call activity class.
-
-```java
-// {YourApplication}.java
-SendBirdCall.addListener(UUID.randomUUID().toString(), new SendBirdCallListener() {
-    @Override
-    public void onRinging(DirectCall call) {
-        ...
-        Intent intent = new Intent(context, YourCallActivity.class);
-        intent.putExtra("EXTRA_INCOMING_CALL_ID", call.getCallId());
-        ...
-        getApplicationContext().startActivity(intent);
-    }
-});
-
-// {YourCallActivity}.java
-@Override
-protected void onCreate(Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
-    ...
-    String callId = getIntent().getStringExtra("EXTRA_INCOMING_CALL_ID");
-    DirectCall call = SendBirdCall.getCall(callId);
-    ...
-    SendBirdVideoView localVideoView = findViewById(R.id.video_view_fullscreen);
-    call.setLocalVideoView(localVideoView);
-    ...
-}
-```
-
-```xml
-// {activity_your_call}.xml
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    ...
-    <com.sendbird.calls.SendBirdVideoView
-        android:id="@+id/video_view_fullscreen"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-    ...
-</RelativeLayout>
-```
-
 ## Additional information: call results
 
 Information relating the end result of a call can be obtained at any time via the  `directCall.getEndResult()`  method, best invoked within the `onEnded()` callback.  
