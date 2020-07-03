@@ -1,5 +1,11 @@
 ## Change Log
 
+### 1.1.5 (Jul 3, 2020)
+* Improved camera management.
+    * Added `onLocalVideoSettingsChanged` event in `DirectCallListener`.
+        * It will be called when the local video is started or stopped.
+    * If camera is disconnected by other apps or call, a `DirectCall` stops local video. And the video could be started with `startVideo()` method.
+
 ### 1.1.4 (Jun 25, 2020)
 * Improved stability.
 
