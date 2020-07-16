@@ -1,5 +1,15 @@
 ## Change Log
 
+### 1.2.0 (Jul 16, 2020)
+* Support `Peer-to-peer` call.
+    * The `Peer-to-peer` option can be configured on the dashboard.
+* Added getting ongoing call count and ongoing status of `DirectCall`.
+    * Added `getOngoingCallCount()` in `SendBirdCall`.
+    * Added `isOngoing()` in `DirectCall`.
+* Added `setCallConnectionTimeout()` in `SendBirdCall`.
+    * The timer starts after callee accepts. And the timer will be fired to end the call after given timeout seconds.
+* Improved stability.
+
 ### 1.1.5 (Jul 3, 2020)
 * Improved camera management.
     * Added `onLocalVideoSettingsChanged` event in `DirectCallListener`.

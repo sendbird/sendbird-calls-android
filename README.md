@@ -342,6 +342,13 @@ directCall.setListener(new DirectCallListener() {
 });
 ```
 
+## Mirror a `SendBirdVideoView`
+Android SDK automatically mirrors `SendBirdVideoView` when the current camera is front-facing for a user’s local video view. You can manually set the current user’s local video view as mirrored or reversed when the camera is facing the user by using the code below:  
+```java
+SendBirdVideoView videoView;
+videoView.setMirror(true); // or false
+```
+
 ## Retrieve a call information
 
 The local or remote user’s information is available via the `directCall.getLocalUser()` and `directCall.getRemoteUser()` methods.
