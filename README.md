@@ -383,6 +383,15 @@ query.next(new DirectCallLogListQueryResultHandler() {
 | Params.myRole     | Returns the call history of the specified role. (e.g. the `setMyRole(Callee)` returns only the callee’s call history.) |
 | Params.endResults | Filters the results based on the call end result (e.g. `COMPLETED`,`NO_ANSWER`,etc.) If multiple values are specified, they are processed as an `OR` condition. For example, `setEndResults(NO_ANSWER, CANCELED)`, only the history entries that resulted in `NO_ANSWER` or `CANCELED` will be returned. |
 
+## Timeout options
+
+The following table lists a set of methods of the `SendBirdCall` class.
+
+| Method                                | Description |
+|---------------------------------------|-------------|
+| setRingingTimeout(int timeout)        | Sets the time limit in seconds for an unanswered call. The default value is 60 seconds. |
+| setCallConnectionTimeout(int timeout) | Sets the time limit in seconds for a connecting call. The default value is 60 seconds. |
+
 ## Additional information: call results
 
 Information relating the end result of a call can be obtained at any time via the  `directCall.getEndResult()`  method, best invoked within the `onEnded()` callback.  
