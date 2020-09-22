@@ -392,6 +392,39 @@ The following table lists a set of methods of the `SendBirdCall` class.
 | setRingingTimeout(int timeout)        | Sets the time limit in seconds for an unanswered call. The default value is 60 seconds. |
 | setCallConnectionTimeout(int timeout) | Sets the time limit in seconds for a connecting call. The default value is 60 seconds. |
 
+## Sound effects
+
+### Sound types
+
+| Type | Description |
+|------|-------------|
+| DIALING | Refers to a sound that is played on a caller’s side when the caller makes a call to a callee. |
+| RINGING | Refers to a sound that is played on a callee’s side when receiving a call. |
+| RECONNECTING | Refers to a sound that is played when a connection is lost, but immediately tries to reconnect. Users are also allowed to customize the ringtone. |
+| RECONNECTED | Refers to a sound that is played when a connection is re-established. |
+
+### Add sound
+
+| Method | Description |
+|--------|-------------|
+| addDirectCallSound | Adds a specific sound to a direct call such as a ringtone or an alert tone with an android resource ID. |
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| soundType | SoundType | Specifies the sound type to be used according to the event. |
+| resId | int | Specifies the Android resource ID. |
+
+### Remove sound
+
+| Method | Description |
+|--------|-------------|
+| removeDirectCallSound | Removes a specific sound from a direct call. |
+
+| Parameter | Type | Description |
+|------|------|-------|
+| soundType | SoundType | Specifies the sound type to be used according to the event. |
+| resId | int | Specifies the Android resource ID. |
+
 ## Additional information: call results
 
 Information relating the end result of a call can be obtained at any time via the  `directCall.getEndResult()`  method, best invoked within the `onEnded()` callback.  
