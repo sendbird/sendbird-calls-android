@@ -1,5 +1,16 @@
 ## Change Log
 
+### 1.3.0 (Sep 22, 2020)
+* Migrated SDK to Kotlin.
+* Added `captureLocalVideoView` and `captureRemoteVideoView` in `DirectCall`.
+* Added media recording feature.
+  * Added `addRecordingListener`, `removeRecordingListener` and `removeAllRecordingListener` in `SendBirdCall`.
+  * Added `startRecording`, `stopRecording` and `isRecording` in `DirectCall`
+  * Added `RecordingOptions` class for the recording functions.
+* Added custom sound-related feature.
+    * Added `SoundType` enum class in `SendBirdCall`.
+    * Added `addDirectCallSound` and `removeDirectCallSound` in `SendBirdCall.Options`.
+
 ### 1.2.0 (Jul 16, 2020)
 * Support `Peer-to-peer` call.
     * The `Peer-to-peer` option can be configured on the dashboard.
