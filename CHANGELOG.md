@@ -1,5 +1,13 @@
 ## Change Log
 
+### 1.4.0 (Nov 2, 2020 UTC)
+- Added remote recording progress event
+  - Added `onRemoteRecordingStatusChanged()` in `DirectCallListener`
+  - Added `getLocalRecordingStatus()` and `getRemoteRecordingStatus()` in `DirectCall`
+  - Added `enum class RecordingStatus { NONE, RECORDING }`
+  - Deprecated `isRecording()` in `DirectCall`
+- Improved stability
+
 ### 1.3.0 (Sep 22, 2020)
 * Migrated SDK to Kotlin.
 * Added `captureLocalVideoView` and `captureRemoteVideoView` in `DirectCall`.

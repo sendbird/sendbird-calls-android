@@ -2,7 +2,7 @@
 
 [![Platform](https://img.shields.io/badge/platform-android-orange.svg)](https://github.com/sendbird/sendbird-calls-android)
 [![Languages](https://img.shields.io/badge/language-java-orange.svg)](https://github.com/sendbird/sendbird-calls-android)
-[![Maven](https://img.shields.io/badge/maven-v1.3.0-green.svg)](https://github.com/sendbird/sendbird-calls-android/tree/master/com/sendbird/sdk/sendbird-calls/1.3.0)
+[![Maven](https://img.shields.io/badge/maven-v1.4.0-green.svg)](https://github.com/sendbird/sendbird-calls-android/tree/master/com/sendbird/sdk/sendbird-calls/1.4.0)
 [![Commercial License](https://img.shields.io/badge/license-Commercial-brightgreen.svg)](https://github.com/sendbird/sendbird-calls-android/blob/master/LICENSE.md)
 
 ## Introduction
@@ -40,7 +40,7 @@ Download and install the SDK using `Gradle`.
 
 ```groovy
 dependencies {
-    implementation 'com.sendbird.sdk:sendbird-calls:1.3.0'
+    implementation 'com.sendbird.sdk:sendbird-calls:1.4.0'
 }
 ```
 
@@ -144,7 +144,7 @@ SendBirdCall.addListener(UNIQUE_HANDLER_ID, new SendBirdCallListener() {
 Register a call-specific `DirectCallListener` event handler using the `DirectCall.addCallListener()` method. Responding to call-specific events (e.g. sucessfull call connection) is then handled as shown below:
 
 ```java
-directCallsetListener(new DirectCallListener() {
+directCall.setListener(new DirectCallListener() {
     @Override
     public void onEstablished(DirectCall call) {}
 
@@ -174,11 +174,14 @@ directCallsetListener(new DirectCallListener() {
 
     @Override
     public void onAudioDeviceChanged(DirectCall call, AudioDevice currentAudioDevice, Set<AudioDevice> availableAudioDevices) {}
+
+    @Override
+    public void onRemoteRecordingStatusChanged(DirectCall call) {}
 });
 ```
 
 | Method                         | Invocation Criteria |
-|--------------------------------|--------------|
+|--------------------------------|---------------------|
 | onEstablished()                | The callee accepted the call using the method `directCall.accept()`, but neither the caller or callee’s devices are as of yet connected to media devices. |
 | onConnected()                  | Media devices (e.g. microphone and speakers) between the caller and callee are connected and the voice or video call can begin. |
 | onEnded()                      | The call has ended on either the caller or the callee’s devices. This is triggered automatically when either party runs the method `directCall.end()`. This event listener is also invoked if the call is ended for other reasons. See the bottom of this readme for a list of all possible reasons for call termination.  |
@@ -189,6 +192,7 @@ directCallsetListener(new DirectCallListener() {
 | onReconnecting()               | `DirectCall` started attempting to reconnect to the other party after a media connection disruption. |
 | onReconnected()                | The disrupted media connection reconnected. |
 | onAudioDeviceChanged()         | The audio device used in the call has changed. |
+| onRemoteRecordingStatusChanged() | The other user’s recording status has been changed. |
 
 ## Make a call
 
