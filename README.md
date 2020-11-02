@@ -468,5 +468,5 @@ SendBirdCall.Options.setThreadOption(SendBirdCall.Options.ThreadOption.HANDLER, 
 ## Additional information: android sdk sizes
 | File       | Raw Files | Compiled Size |
 |------------|-----------|---------------|
-| Calls SDK  | 1.76MB    | 1.19MB        |
+| Calls SDK  | 1.77MB    | 1.18MB        |
 | WebRTC SDK | 26.8MB    | 12MB          |
