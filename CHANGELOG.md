@@ -1,5 +1,8 @@
 ## Change Log
 
+### 1.4.1 (Nov 13, 2020 UTC)
+- Fixed crash that happened on custom items.
+
 ### 1.4.0 (Nov 2, 2020 UTC)
 - Added remote recording progress event
   - Added `onRemoteRecordingStatusChanged()` in `DirectCallListener`
