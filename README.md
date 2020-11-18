@@ -1,24 +1,45 @@
-# SendBird Calls for Android
+# [Sendbird](https://sendbird.com) Calls SDK for Android
 
 [![Platform](https://img.shields.io/badge/platform-android-orange.svg)](https://github.com/sendbird/sendbird-calls-android)
 [![Languages](https://img.shields.io/badge/language-java-orange.svg)](https://github.com/sendbird/sendbird-calls-android)
 [![Maven](https://img.shields.io/badge/maven-v1.4.1-green.svg)](https://github.com/sendbird/sendbird-calls-android/tree/master/com/sendbird/sdk/sendbird-calls/1.4.1)
 [![Commercial License](https://img.shields.io/badge/license-Commercial-brightgreen.svg)](https://github.com/sendbird/sendbird-calls-android/blob/master/LICENSE.md)
 
+## Table of contents
+
+  1. [Introduction](#introduction)
+  1. [Before getting started](#before-getting-started)
+  1. [Getting started](#getting-started)
+  1. [Configure the application for the SDK](#configure-the-application-for-the-sdk)
+  1. [Make your first call](#make-your-first-call)
+  1. [Implementation guide](#implementation-guide)  
+  1. [Appendix](#appendix)
+  1. [Troubleshooting](#troubleshooting)  
+
+<br />
+
 ## Introduction
 
-`SendBird Calls` is the latest addition to our product portfolio. It enables real-time calls between users within a SendBird application. SDKs are provided for iOS, Android, and JavaScript. Using any one of these, developers can quickly integrate voice and video call functions into their own client apps, allowing users to make and receive web-based real-time voice and video calls on the SendBird platform.
+**SendBird Calls** is the latest addition to our product portfolio. It enables real-time calls between users within a Sendbird application. SDKs are provided for iOS, Android, and JavaScript. Using Sendbird SDK helps developers to quickly integrate voice and video call functions into their client apps. This allows users to make and receive web-based real-time voice and video calls on Sendbird platform.
 
-> If you need any helps or have any issue / question, please visit [our community](https://community.sendbird.com)
+> If you need any help in resolving any issues or have questions, please visit [our community](https://community.sendbird.com)
 
-## Functional Overview
+### How it works
 
-The SendBird Calls Android SDK provides a framework to make and receive voice and video calls. “Direct calls” in the SDK refers to one-to-one calls, comparable to “direct messages” (DMs) in messaging services. To make a direct voice or video call, the caller specifies the user ID of the intended callee, and dials. Upon dialing, all of the callee’s authenticated devices will receive incoming call notifications. The callee then can choose to accept the call from any one of the devices. When the call is accepted, a connection is established between the caller and the callee. This marks the start of the direct call. Call participants may mute themselves, as well as select the audio and video hardware used in the call. Calls may be ended by either party. The SendBird Dashboard displays call logs in the Calls menu for application owners and admins to review.
+Sendbird Calls SDK for Android provides a framework to make and receive voice and video calls. “Direct calls” in the SDK refers to one-to-one calls. To make a direct voice or video call, the caller specifies the user ID of the intended callee, and dials. Upon dialing, all of the callee’s authenticated devices will receive notifications for an incoming call. The callee then can choose to accept the call from any one of the devices. When the call is accepted, a connection is established between the devices of the caller and the callee. This marks the start of a direct call. Call participants can mute themselves, or call with either or both of the audio and video by using output devices such as speaker and microphone for audio, and front, rear camera for video. A call may be ended by either party. The [Sendbird Dashboard](https://dashboard.sendbird.com/auth/signin) displays call logs in the Calls menu for dashboard owners and admins to review.
 
-## SDK Prerequisites
+<br />
 
-* Android 4.1 (API level 16) or later
-* Java 8 or later
+## Before getting started
+
+This section shows the prerequisites you need to check to use Sendbird Calls SDK for Android.
+
+### Requirements
+
+The minimum requirements for Calls SDK for Android are:
+
+- Android 4.1 (API level 16) or later
+- Java 8 or later
 
 ```groovy
 // build.gradle(app)
@@ -34,7 +55,13 @@ android {
 }
 ```
 
-## Install and configure the SDK
+<br />
+
+## Getting started
+
+This section gives you information you need to get started with Sendbird Calls SDK for Android.
+
+### Install and configure the SDK
 
 Download and install the SDK using `Gradle`.
 
@@ -44,7 +71,7 @@ dependencies {
 }
 ```
 
-## Grant system permissions to the SDK
+### Grant system permissions to the SDK
 
 The SDK requires system permissions. The following permissions allow the SDK to access the microphone and use audio, as shown here:
 
@@ -57,11 +84,11 @@ The SDK requires system permissions. The following permissions allow the SDK to 
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 ```
 
-The `CAMERA` and `RECORD_AUDIO` permissions are classified as `dangerous`  and require users to grant them explicitly when an app is run for the first time on devices running Android 6.0 or higher.
+The `CAMERA` and `RECORD_AUDIO` permissions are classified as `dangerous` and require users to grant them explicitly when an app is run for the first time on devices running Android 6.0 or higher.
 
 For more information about requesting app permissions, see  Android’s Request App Permissions [guide](https://developer.android.com/training/permissions/requesting.html).
 
-## (Optional) Configure ProGuard to shrink code and resources
+### (Optional) Configure ProGuard to shrink code and resources
 
 When you build your APK with `minifyEnabled true`, add the following line to the module's ProGuard rules file.
 ```
@@ -72,17 +99,27 @@ When you build your APK with `minifyEnabled true`, add the following line to the
 -keepattributes InnerClasses
 ```
 
-## Initialize the SendBirdCall instance in a client app
+<br />
 
-As shown below, the `SendBirdCall` instance must be initiated when a client app is launched. If another initialization with another `APP_ID` takes place, all existing data will be deleted and the `SendBirdCall` instance will be initialized with the new `APP_ID`.
+## Make your first call
+
+Follow the step-by-step instructions below to authenticate and make your first call. 
+
+### Step 1: Initialize the SendBirdCall instance in a client app
+
+As shown below, the `SendBirdCall` instance must be initiated when a client app is launched. Initialize the `SendBirdCall` instance with the `APP_ID` of the Sendbird application you would like to use to make a call.
 
 ```java
 SendBirdCall.init(getApplicationContext(), APP_ID);
 ```
 
-## Authenticate a user and register a push token
+> Note: If another initialization with another `APP_ID` takes place, all existing data will be deleted and the `SendBirdCall` instance will be initialized with the new `APP_ID`.
 
-In order to make and receive calls, users must first be authenticated on the SendBird server using the `SendBirdCall.authenticate()` method. To receive calls while an app is either in the background or closed entirely, a device registration token must be registered. A push tokens may be registered during authentication as a parameter in the `authenticate()` method, or after authentication as a parameter in  the `SendBirdCall.registerPushToken()` method. For more details on registering push tokens, please refer to SendBird’s documentation [here](https://docs.sendbird.com/android/push_notifications).
+### Step 2: Authenticate a user and register a push token
+
+In order to make and receive calls, users must first be authenticated on Sendbird server using the `SendBirdCall.authenticate()` method. To receive calls while an app is either in the background or closed entirely, a device registration token must be registered. A push token may be registered during authentication as a parameter in the `authenticate()` method, or after authentication as a parameter in  the `SendBirdCall.registerPushtokensToken()` method. 
+
+For more details on registering a push token, refer to [Push notifications for Android](https://sendbird.com/docs/chat/v3/android/guides/push-notifications).
 
 ```java
 // Authentication
