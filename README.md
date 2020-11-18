@@ -156,7 +156,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
 There are two types of event handlers the SDK provides for a client app to respond to various events: `SendBirdCallListener` and `DirectCallListener`.
 
-#### SendBirdCallListener
+#### - SendBirdCallListener
 
 Register a device-specific `SendBirdCallListener` event handler using the `SendBirdCall.addListener()` method. It is recommended to add the event handler during initialization because it is a prerequisite for detecting `onRinging()` event. The code below shows the way device-wide events such as incoming calls are handled once `SendBirdCallListener` is added. 
 
@@ -176,7 +176,7 @@ SendBirdCall.addListener(UNIQUE_HANDLER_ID, new SendBirdCallListener() {
 |---|---|
 | onRinging() | Incoming calls are received on the callee’s device.|
 
-#### DirectCallListener
+#### - DirectCallListener
 
 Register a call-specific `DirectCallListener` event handler using the `DirectCall.addCallListener()` method. Responding to call-specific events, such as establishing a sucessfull call connection, is then handled as shown below:
 
