@@ -10,11 +10,10 @@
   1. [Introduction](#introduction)
   1. [Before getting started](#before-getting-started)
   1. [Getting started](#getting-started)
-  1. [Configure the application for the SDK](#configure-the-application-for-the-sdk)
   1. [Make your first call](#make-your-first-call)
   1. [Implementation guide](#implementation-guide)  
   1. [Appendix](#appendix)
-  1. [Troubleshooting](#troubleshooting)  
+  1. [Troubleshooting](#troubleshooting) 
 
 <br />
 
@@ -513,7 +512,7 @@ The following table lists a set of methods of the `SendBirdCall` class.
 
 ### Sound effects
 
-#### Sound types
+#### - Sound types
 
 | Type | Description |
 |---|---|
@@ -522,7 +521,7 @@ The following table lists a set of methods of the `SendBirdCall` class.
 | RECONNECTING | Refers to a sound that is played when a connection is lost, but immediately tries to reconnect. Users are also allowed to customize the ringtone. |
 | RECONNECTED | Refers to a sound that is played when a connection is re-established. |
 
-#### Add sound
+#### - Add sound
 
 |Method|Description|
 |---|---|
@@ -533,7 +532,7 @@ The following table lists a set of methods of the `SendBirdCall` class.
 |soundType|SoundType| Specifies the sound type to be used according to the event. |
 |resId|int| Specifies the Android resource ID. |
 
-#### Remove sound
+#### - Remove sound
 
 |Method|Description|
 |---|---|
