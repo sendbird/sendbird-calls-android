@@ -13,7 +13,6 @@
   1. [Make your first call](#make-your-first-call)
   1. [Implementation guide](#implementation-guide)  
   1. [Appendix](#appendix)
-  1. [Troubleshooting](#troubleshooting) 
 
 <br />
 
