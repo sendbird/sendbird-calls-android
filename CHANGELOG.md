@@ -1,5 +1,8 @@
 ## Change Log
 
+### 1.4.2 (Nov 19, 2020 UTC)
+- Added `setDirectCallDialingSoundOnWhenSilentOrVibrateMode()` in `SendBirdCall.Options`
+
 ### 1.4.1 (Nov 13, 2020 UTC)
 - Fixed crash that happened on custom items.
 
