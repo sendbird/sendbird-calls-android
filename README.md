@@ -10,7 +10,7 @@
   1. [Introduction](#introduction)
   1. [Before getting started](#before-getting-started)
   1. [Getting started](#getting-started)
-  1. [Make your first call](#make-your-first-call)
+  1. [Making your first call](#making-your-first-call)
   1. [Implementation guide](#implementation-guide)  
   1. [Appendix](#appendix)
 
@@ -103,7 +103,7 @@ When you build your APK with `minifyEnabled true`, add the following line to the
 
 <br />
 
-## Make your first call
+## Making your first call
 
 Follow the step-by-step instructions below to authenticate and make your first call. 
 
