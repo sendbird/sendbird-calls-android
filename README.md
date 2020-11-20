@@ -272,7 +272,7 @@ call.setListener(new DirectCallListener() {
 
 Register `SendBirdCallListner` first to receive incoming calls. Accept or decline incoming calls by using the `directCall.accept()` or the `directCall.end()` methods. If the call is accepted, a media session will automatically be established.
 
-Before accepting any calls, the `directCall.setListener()` must be registered in the `SendBirdCallListener`. Once registered, `directCall.setListener()` enables reacting to in-call events through callbacks methods.
+Before accepting any calls, the `directCall.setListener()` must be registered in the `SendBirdCallListener`. Once registered, `directCall.setListener()` enables reacting to in-call events through callback methods.
 
 ```java
 SendBirdCall.addListener(UNIQUE_HANDLER_ID, new SendBirdCallListener() {
