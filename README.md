@@ -225,7 +225,7 @@ directCall.setListener(new DirectCallListener() {
 |---|---|
 |onEstablished()|The callee accepted the call using the method `directCall.accept()`, but neither the caller or callee’s devices are as of yet connected to media devices. |
 |onConnected()| Media devices (e.g. microphone and speakers) between the caller and callee are connected and the voice or video call can begin. |
-|onEnded()| The call has ended on either the caller or the callee’s devices. This is triggered automatically when either party runs the method `directCall.end()`. This event listener is also invoked if the call is ended for other reasons. See the bottom of this readme for a list of all possible reasons for call termination.|
+|onEnded()| The call has ended on either the caller or the callee’s devices. This is triggered automatically when either party runs the method `directCall.end()`. This event listener is also invoked if the call is ended for other reasons. Refer to [Call results](#call-results) in [Appendix](#appendix) for all possible reasons for call termination.|
 |onRemoteAudioSettingsChanged()| The other party changed their audio settings. |
 |onRemoteVideoSettingsChanged()| The other party changed their video settings. |
 |onCustomItemsUpdated()| One or more of `DirectCall`’s custom items (metadata) have been updated. |
