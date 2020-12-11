@@ -1,5 +1,13 @@
 ## Change Log
 
+### 1.5.0 (Dec 11, 2020 UTC)
+- Added support for integration with Sendbird Chat
+	- Added `SendBirdChatOptions`
+	- Added `setSendBirdChatOptions()` to `DialParams`
+- Added support for `Call summary` on the dashboard.
+- Improved backend scalability
+- Enhanced security for compliance
+
 ### 1.4.2 (Nov 19, 2020 UTC)
 - Added `setDirectCallDialingSoundOnWhenSilentOrVibrateMode()` in `SendBirdCall.Options`
 
