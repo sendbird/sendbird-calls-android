@@ -1,5 +1,8 @@
 ## Change Log
 
+### 1.5.2 (Jan 8, 2021 UTC)
+- Fixed crash that happens on typealias-related code.
+
 ### 1.5.1 (Dec 22, 2020 UTC)
 - Fixed minor bug.
 
