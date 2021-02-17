@@ -1,5 +1,23 @@
 ## Change Log
 
+### 1.6.0-beta (Feb 17, 2021 UTC)
+Sendbird Calls SDK version 1.6.0 supports the early access program for group calling. New concepts introduced in this version center around **rooms** and **participants.**
+
+- **New methods to existing classes**
+    - Added `createRoom()` in `SendBirdCall`
+    - Added `fetchRoomById()` in `SendBirdCall`
+    - Added `getCachedRoomById()` in `SendBirdCall`
+- **New classes**
+    - Added `Room`
+        - Added `EnterParams`
+        - Added `RoomListener`
+        - Added `RoomState`
+        - Added `RoomHandler`
+    - Added `Participant`
+        - Added `LocalParticipant`
+        - Added `RemoteParticipant`
+        - Added `ParticipantState`
+
 ### 1.5.2 (Jan 8, 2021 UTC)
 - Fixed crash that happens on typealias-related code.
 
