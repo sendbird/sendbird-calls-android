@@ -2,7 +2,7 @@
 
 [![Platform](https://img.shields.io/badge/platform-android-orange.svg)](https://github.com/sendbird/sendbird-calls-android)
 [![Languages](https://img.shields.io/badge/language-java-orange.svg)](https://github.com/sendbird/sendbird-calls-android)
-[![Maven](https://img.shields.io/badge/maven-v1.5.2-green.svg)](https://github.com/sendbird/sendbird-calls-android/tree/master/com/sendbird/sdk/sendbird-calls/1.5.2)
+[![Maven](https://img.shields.io/badge/maven-v1.5.3-green.svg)](https://github.com/sendbird/sendbird-calls-android/tree/master/com/sendbird/sdk/sendbird-calls/1.5.3)
 [![Commercial License](https://img.shields.io/badge/license-Commercial-brightgreen.svg)](https://github.com/sendbird/sendbird-calls-android/blob/master/LICENSE.md)
 
 ## Table of contents
@@ -69,7 +69,7 @@ Download and install the SDK using `Gradle`.
 
 ```groovy
 dependencies {
-    implementation 'com.sendbird.sdk:sendbird-calls:1.5.2'
+    implementation 'com.sendbird.sdk:sendbird-calls:1.5.3'
 }
 ```
 

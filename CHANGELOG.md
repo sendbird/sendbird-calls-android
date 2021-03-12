@@ -1,5 +1,10 @@
 ## Change Log
 
+### 1.5.3 (Mar 12, 2021 UTC)
+- Added `startScreenShare(mediaProjectionPermissionResultData: Intent, handler: CompletionHandler?)` in `DirectCall`.
+- Added `stopScreenShare(handler: CompletionHandler?)` in `DirectCall`.
+- Added `isLocalScreenShareEnabled` in `DirectCall`.
+
 ### 1.6.0-beta (Feb 17, 2021 UTC)
 Sendbird Calls SDK version 1.6.0 supports the early access program for group calling. New concepts introduced in this version center around **rooms** and **participants.**
 
