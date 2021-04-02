@@ -67,11 +67,24 @@ This section gives you information you need to get started with Sendbird Calls S
 
 Download and install the SDK using `Gradle`.
 
+```gradle
+allprojects {
+	repositories {
+		...
+		maven { url "https://repo.sendbird.com/public/maven" }
+	}
+}
+```
+
+> Note: Make sure the above code block isn't added to your module `bundle.gradle` file.
+
 ```groovy
 dependencies {
     implementation 'com.sendbird.sdk:sendbird-calls:1.5.3'
 }
 ```
+
+> Note: Calls SDK versions `1.5.3` or lower can be downloaded from JCenter until February 1, 2022. SDK versions higher than `1.5.3` will be available on Sendbird's remote repository.
 
 ### Grant system permissions to the SDK
 
