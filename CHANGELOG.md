@@ -1,5 +1,25 @@
 ## Change Log
 
+### 1.6.0 (Apr 22, 2021 UTC)
+- Sendbird Calls now supports making group calls in a room.
+    - Added `Room`.
+        - Added `createRoom(room: RoomParam, handler: RoomHandler)` in `SendBirdCall`.
+        - Added `fetchRoomById(roomId: String)` in `SendBirdCall`.
+        - Added `getCachedRoomById(roomId: String)` in `SendBirdCall`. 
+        - Added `RoomType`.
+        - Added `RoomParams`.
+        - Added `RoomState`.
+        - Added `EnterParams`.
+        - Added `RoomListener`.
+    - Added `Participant`, `LocalParticipant` and `RemoteParticipant`.
+        - Added `ParticipantState`.
+- Removed deprecated interfaces
+    - Removed `setPushToken(pushToken: String, unique: Boolean)` in `AuthenticateParams`.
+    - Removed `deauthenticate(pushToken: String?, handler: CompletionHandler?)` in `SendBirdCall`.
+    - Removed `isRecording` in `DirectCall`.
+- Improved stability.
+- As `jcenter` has been shut down, Sendbird Calls is now only available from Sendbird's maven repository: `maven { url "https://repo.sendbird.com/public/maven" }` starting from version 1.6.0.
+
 ### 1.5.3 (Mar 12, 2021 UTC)
 - Added `startScreenShare(mediaProjectionPermissionResultData: Intent, handler: CompletionHandler?)` in `DirectCall`.
 - Added `stopScreenShare(handler: CompletionHandler?)` in `DirectCall`.
