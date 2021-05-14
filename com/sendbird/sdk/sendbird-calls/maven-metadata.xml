@@ -3,7 +3,7 @@
   <groupId>com.sendbird.sdk</groupId>
   <artifactId>sendbird-calls</artifactId>
   <versioning>
-    <release>1.6.0</release>
+    <release>1.6.1</release>
     <versions>
       <version>0.6.0</version>
       <version>0.6.1</version>
@@ -33,7 +33,8 @@
       <version>1.6.0-beta</version>
       <version>1.5.3</version>
       <version>1.6.0</version>
+      <version>1.6.1</version>
     </versions>
-    <lastUpdated>20210422080947</lastUpdated>
+    <lastUpdated>20210514035454</lastUpdated>
   </versioning>
 </metadata>

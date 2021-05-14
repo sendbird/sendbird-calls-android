@@ -1,5 +1,11 @@
 ## Change Log
 
+### 1.6.1 (May 14, 2021 UTC)
+- Fixed an issue where `DirectCall.duration` always returns zero.
+- Fixed an issue where `SendBirdCall.setCallConnectionTimeout()` doesn't work intermittently.
+- Fixed an issue where Direct calls with iOS SDK were not being made.
+- Fixed intermittent crashes when making Direct calls.
+
 ### 1.6.0 (Apr 22, 2021 UTC)
 - Sendbird Calls now supports making group calls in a room.
     - Added `Room`.
