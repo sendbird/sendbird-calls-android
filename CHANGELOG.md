@@ -1,5 +1,14 @@
 ## Change Log
 
+### 1.7.0 (June 4, 2021 UTC)
+- Added capability to query rooms.
+    - Added `RoomListQuery`.
+    - Added `RoomListQuery.Params`.
+    - Added `createRoomListQuery(Params)` in `SendBirdCall`.
+- Added `Range`.
+- Improved security.
+- Improved stability.
+
 ### 1.6.1 (May 14, 2021 UTC)
 - Fixed an issue where `DirectCall.duration` always returns zero.
 - Fixed an issue where `SendBirdCall.setCallConnectionTimeout()` doesn't work intermittently.
