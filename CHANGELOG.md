@@ -11,8 +11,8 @@ For the Group call feature, you can now add and manage custom items to store add
     * Added `updateCustomItems(Map<String, String>, CompletionHandler)` and `deleteCustomItems(Set<String>, CompletionHandler:)` in `Room`.
     * Added `onCustomItemsUpdated(List<String>)` and `onCustomItemsDeleted(List<String>)` in `RoomListener`.
 
-* For the Direct call feature, you can now hold and resume calls which allows you to accept an incoming call or switch between calls.
-Here are the details of the update:
+For the Direct call feature, you can now hold and resume calls which allows you to accept an incoming call or switch between calls.
+* Here are the details of the update:
     * Added `hold(CompletionHandler)` and `unhold(Boolean, CompletionHandler)` in `DirectCall`.
     * Added `isOnHold` in `DirectCall`.
     * Added `holdActiveCall` in `DialParams` and `AcceptParams`.
