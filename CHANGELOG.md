@@ -1,5 +1,27 @@
 ## Change Log
 
+### 1.8.0 (Oct 27, 2021 UTC)
+
+For 1.8.0, a new feature is released for both Group call and Direct call features respectively.
+
+For the Group call feature, you can now add and manage custom items to store additional information for a room.
+Here are the details of the update:
+    - Added `customItems` in `Room`.
+    - Added `customItems` in `RoomParams`.
+    - Added `updateCustomItems(Map<String, String>, CompletionHandler)` and `deleteCustomItems(Set<String>, CompletionHandler:)` in `Room`.
+    - Added `onCustomItemsUpdated(List<String>)` and `onCustomItemsDeleted(List<String>)` in `RoomListener`.
+
+For the Direct call feature, you can now hold and resume calls which allows you to accept an incoming call or switch between calls.
+Here are the details of the update:
+    - Added `hold(CompletionHandler)` and `unhold(Boolean, CompletionHandler)` in `DirectCall`.
+    - Added `isOnHold` in `DirectCall`.
+    - Added `holdActiveCall` in `DialParams` and `AcceptParams`.
+    - Added `onUserHoldStatusChanged(DirectCall, Boolean, Boolean)` in `DirectCallListener`.
+- Added `ongoingCalls` in `SendBirdCall` to retrieve a list of ongoing Direct Calls in the Calls SDK.
+- API reference is updated.
+- Updated Kotlin standard library version to 1.5.31. 
+- Improved stability.
+
 ### 1.7.0 (June 4, 2021 UTC)
 - Added capability to query rooms.
     - Added `RoomListQuery`.
