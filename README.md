@@ -100,7 +100,7 @@ The SDK requires system permissions. The following permissions allow the SDK to 
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 ```
 
-When launching the client app for the first time, users are required to grant [dangerous permissions](https://developer.android.com/guide/topics/permissions/overview#dangerous_permissions).
+When launching the client app for the first time, users are required to grant [runtime permissions](https://developer.android.com/guide/topics/permissions/overview#dangerous_permissions).
 
 For a device with Android 6.0 or higher, `CAMERA`, `RECORD_AUDIO` permissions are required. For a client app with `targetSdkVersion` with Android 12 or higher, `BLUETOOTH_CONNECT` permission is required.
 
