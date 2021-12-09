@@ -95,13 +95,16 @@ The SDK requires system permissions. The following permissions allow the SDK to 
 <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
 <uses-permission android:name="android.permission.RECORD_AUDIO" />
 <uses-permission android:name="android.permission.BLUETOOTH" />
+<uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
 <uses-permission android:name="android.permission.INTERNET" />
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 ```
 
-The `CAMERA` and `RECORD_AUDIO` permissions are classified as `dangerous` and require users to grant them explicitly when an app is run for the first time on devices running Android 6.0 or higher.
+When launching the client app for the first time, users are required to grant [dangerous permissions](https://developer.android.com/guide/topics/permissions/overview#dangerous_permissions).
 
-For more information about requesting app permissions, see  Android’s Request App Permissions [guide](https://developer.android.com/training/permissions/requesting.html).
+For a device with Android 6.0 or higher, `CAMERA`, `RECORD_AUDIO` permissions are required. For a client app with `targetSdkVersion` with Android 12 or higher, `BLUETOOTH_CONNECT` permission is required.
+
+> Note: For more information about requesting app permissions, see  Android’s Request App Permissions [guide](https://developer.android.com/training/permissions/requesting.html).
 
 ### (Optional) Configure ProGuard to shrink code and resources
 

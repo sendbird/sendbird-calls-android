@@ -1,5 +1,11 @@
 ## Change Log
 
+### 1.9.0 (Dec 9, 2021 UTC)
+For 1.9.0, a feature to delete a room in Group call is released.
+* Added `onDeleted()` in `RoomListener` which is invoked when the room has been deleted by the Platform API.
+
+* Fixed a bug that causes a crash if a user hadn't granted `BLUETOOTH_CONNECT` permission on the app targeting Android 12.
+
 ### 1.8.0 (Oct 27, 2021 UTC)
 
 For 1.8.0, a new feature is released for both Group call and Direct call features respectively.
