@@ -1,5 +1,10 @@
 ## Changelog
 
+### 1.9.1 (Aug 03, 2022 UTC)
+* Fixed a bug where the packet loss rate was negative.
+* Changed the `startedAt` property of DirectCall to public
+* Improved stability
+
 ### 1.9.0 (Dec 9, 2021 UTC)
 For 1.9.0, a feature to delete a room in Group call is released.
 * Added `onDeleted()` in `RoomListener` which is invoked when the room has been deleted by the Platform API.
