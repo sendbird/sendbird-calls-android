@@ -1,5 +1,8 @@
 ## Changelog
 
+### 1.9.2 (Oct 14, 2022 UTC)
+* Improved stability
+
 ### 1.9.1 (Aug 03, 2022 UTC)
 * Fixed a bug where the packet loss rate was negative.
 * Changed the `startedAt` property of DirectCall to public
