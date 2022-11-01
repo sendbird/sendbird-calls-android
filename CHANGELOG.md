@@ -1,5 +1,8 @@
 ## Changelog
 
+### 1.9.3 (Nov 01, 2022 UTC)
+* Fixed a bug where bluetooth headphones didn't work
+
 ### 1.9.2 (Oct 14, 2022 UTC)
 * Improved stability
 
