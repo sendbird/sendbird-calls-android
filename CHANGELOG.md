@@ -1,5 +1,8 @@
 ## Changelog
 
+### 1.10.0 (Nov 07, 2022 UTC)
+* Updated webrtc version to M106
+
 ### 1.9.3 (Nov 01, 2022 UTC)
 * Fixed a bug where bluetooth headphones didn't work
 
