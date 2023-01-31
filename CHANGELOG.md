@@ -1,5 +1,15 @@
 ## Changelog
 
+### 1.10.1 (Jan 31, 2023 UTC)
+* Added a feature to invite users to enter a room.
+    * Added `room.sendInvitation(inviteeId:completionHandler:)`.
+    * Added `RoomInvitation` class to manage invitation.
+    * Added `roomInvitation.accept`, `roomInvitation.decline`, `roomInvitation.cancel`.
+    * Added `RoomDelegate.onInvitationAccepted`, `RoomDelegate.onInvitationDeclined`, `RoomDelegate.onInvitationCanceled`.
+* Added a new interface to delete a room.
+    * Added `room.delete`.
+* Added `directCall.resumeVideoCapturer`.
+
 ### 1.10.0 (Nov 07, 2022 UTC)
 * Updated webrtc version to M106
 
