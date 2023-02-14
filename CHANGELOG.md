@@ -1,6 +1,6 @@
 ## Changelog
 
-### 1.10.x (Feb 14, 2023 UTC)
+### 1.10.2 (Feb 14, 2023 UTC)
 * Added room event listeners to detect local participant’s connection with the server
     * Added `RoomListener.onLocalParticipantDisconnected`
     * Added `RoomListener.onLocalParticipantReconnected`
