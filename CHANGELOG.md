@@ -1,5 +1,11 @@
 ## Changelog
 
+### 1.10.x (Feb 14, 2023 UTC)
+* Added room event listeners to detect local participant’s connection with the server
+    * Added `RoomListener.onLocalParticipantDisconnected`
+    * Added `RoomListener.onLocalParticipantReconnected`
+* Added `directCall.resumeVideoCapturer`
+
 ### 1.10.1 (Jan 31, 2023 UTC)
 * Added a feature to invite users to enter a room.
     * Added `room.sendInvitation(inviteeId:completionHandler:)`.
