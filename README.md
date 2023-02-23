@@ -2,7 +2,7 @@
 
 [![Platform](https://img.shields.io/badge/platform-android-orange.svg)](https://github.com/sendbird/sendbird-calls-android)
 [![Languages](https://img.shields.io/badge/language-java-orange.svg)](https://github.com/sendbird/sendbird-calls-android)
-[![Maven](https://img.shields.io/badge/maven-v1.10.2-green.svg)](https://github.com/sendbird/sendbird-calls-android/tree/master/com/sendbird/sdk/sendbird-calls/1.10.2)
+[![Maven](https://img.shields.io/badge/maven-v1.10.3-green.svg)](https://github.com/sendbird/sendbird-calls-android/tree/master/com/sendbird/sdk/sendbird-calls/1.10.3)
 [![Latest version of 'sendbird-calls' @ Cloudsmith](https://api-prd.cloudsmith.io/v1/badges/version/sendbird/release/maven/sendbird-calls/latest/a=noarch;xg=com.sendbird.sdk/?render=true&show_latest=true)](https://cloudsmith.io/~sendbird/repos/release/packages/detail/maven/sendbird-calls/latest/a=noarch;xg=com.sendbird.sdk/)
 [![Commercial License](https://img.shields.io/badge/license-Commercial-brightgreen.svg)](https://github.com/sendbird/sendbird-calls-android/blob/master/LICENSE.md)
 
@@ -81,7 +81,7 @@ allprojects {
 
 ```groovy
 dependencies {
-    implementation 'com.sendbird.sdk:sendbird-calls:1.10.2'
+    implementation 'com.sendbird.sdk:sendbird-calls:1.10.3'
 }
 ```
 
