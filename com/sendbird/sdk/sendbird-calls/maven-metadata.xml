@@ -3,7 +3,7 @@
   <groupId>com.sendbird.sdk</groupId>
   <artifactId>sendbird-calls</artifactId>
   <versioning>
-    <release>1.10.4</release>
+    <release>1.10.5</release>
     <versions>
       <version>0.6.0</version>
       <version>0.6.1</version>
@@ -45,7 +45,8 @@
       <version>1.10.2</version>
       <version>1.10.3</version>
       <version>1.10.4</version>
+      <version>1.10.5</version>
     </versions>
-    <lastUpdated>20230228060428</lastUpdated>
+    <lastUpdated>20230309071708</lastUpdated>
   </versioning>
 </metadata>
