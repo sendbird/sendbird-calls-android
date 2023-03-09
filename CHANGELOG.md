@@ -1,5 +1,11 @@
 ## Changelog
 
+### 1.10.5 (Mar 9, 2023, UTC)
+* Add interface related to Bluetooth device connection
+    * Added directCall.fetchBluetoothDevices.
+    * Added localParticipant.fetchBluetoothDevices.
+* Improved stability
+
 ### 1.10.4 (Feb 28, 2023 UTC)
 * Improved stability
 
