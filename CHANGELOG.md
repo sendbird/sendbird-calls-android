@@ -1,5 +1,9 @@
 ## Changelog
 
+### 1.10.6 (Mar 15, 2023 UTC)
+* Added a feature to kick other participants in a room with the same user id as the current user.
+    * Added Room.EnterParams.kickSiblings
+    
 ### 1.10.5 (Mar 9, 2023, UTC)
 * Add interface related to Bluetooth device connection
     * Added directCall.fetchBluetoothDevices.
