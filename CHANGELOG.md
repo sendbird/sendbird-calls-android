@@ -1,5 +1,10 @@
 ## Changelog
 
+### 1.10.7 (Apr 12, 2023)
+* Added a feature to detect connection qualities in ongoing Direct Calls.
+  * Added `ConnectionQualityListener`
+  * Added `ConnectionMetrics`
+  
 ### 1.10.6 (Mar 15, 2023 UTC)
 * Added a feature to kick other participants in a room with the same user id as the current user.
     * Added Room.EnterParams.kickSiblings
