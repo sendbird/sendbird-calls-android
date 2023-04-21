@@ -1,5 +1,8 @@
 ## Changelog
 
+### 1.10.8 (Apr 21, 2023)
+* Improved connection quality listener in Direct Calls.
+
 ### 1.10.7 (Apr 12, 2023)
 * Added a feature to detect connection qualities in ongoing Direct Calls.
   * Added `ConnectionQualityListener`
