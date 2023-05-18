@@ -1,5 +1,8 @@
 ## Changelog
 
+### 1.10.9 (May 18, 2023 UTC)
+* Added `retrieveMissedDirectCalls()` in SendbirdCall
+
 ### 1.10.8 (Apr 21, 2023)
 * Improved connection quality listener in Direct Calls.
 
