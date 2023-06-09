@@ -1,5 +1,16 @@
 # Changelog
 
+## v1.11.0 (Jun 09, 2023)
+
+### 1.11.0 (Jun 9, 2023 UTC)
+For 1.11.0, the SDK supports Huawei mobile service(HMS) Push kit for huawei devices.
+* Added functions related to registering and unregistering HMS tokens.
+  * Added `SendBirdCalls.registerPushToken(String, PushTokenType, Boolean, CompletionHandler)` to register a given push token.
+  * Added `SendBirdCalls.unregisterPushToken(String, PushTokenType, CompletionHandler)` to unregister a given push token.
+  * Added `SendBirdCalls.unregisterAllPushTokens(PushTokenType, CompletionHandler)` to unregister all given push token type.
+  * Deprecated `SendBirdCalls.registerPushToken(String, Boolean, CompletionHandler)`, `SendBirdCalls.unregisterPushToken(String, CompletionHandler)`, and `SendBirdCalls.unregisterAllPushTokens(CompletionHandler)`.
+* Adjusted the log level of logs that may be misunderstood as indicating serious issues with the SDK.
+
 ## v1.10.9-test (Jun 08, 2023)
 
 
