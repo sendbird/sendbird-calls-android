@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.11.2 (Jun 23, 2023)
+
+### 1.11.2 (Jun 23, 2023)
+* Added `DirectCall.ringingSource`, which indicates the source of the dial event in DirectCall.
+* Added `SendbirdCall.incomingCalls`, which returns a list of incoming calls to the current user.
+
 ## v1.11.1 (Jun 16, 2023)
 
 ### 1.11.1 (Jun 16, 2023)
