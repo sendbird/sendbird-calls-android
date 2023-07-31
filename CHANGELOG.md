@@ -1,5 +1,10 @@
 # Changelog
 
+## v1.11.3 (Jul 31, 2023)
+
+### 1.11.3 (Jul 31, 2023)
+* Added support for Direct Call quality monitoring in Sendbird Dashboard
+
 ## v1.11.2 (Jun 23, 2023)
 
 ### 1.11.2 (Jun 23, 2023)
