@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.11.4 (Aug 2, 2023)
+
+### 1.11.4 (Aug 2, 2023)
+* Fix an issue where Direct Call's Connection Quality would report 'Unavailable' for a few seconds after connecting the call. 
+
 ## v1.11.3 (Jul 31, 2023)
 
 ### 1.11.3 (Jul 31, 2023)
