@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.11.5 (Aug 10, 2023)
+
+### 1.11.5 (Aug 10, 2023)
+* Fix an issue where Direct Call quality statistics won't be collected when the call is being reconnected. 
+* Fix an issue where camera would be incorrectly mirrored in Direct Calls. 
+* Added a feature to track push notification delivery status within the SDK.
+
 ## 1.11.4 (Aug 2, 2023)
 
 ### 1.11.4 (Aug 2, 2023)
