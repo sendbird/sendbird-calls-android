@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.11.6 (Aug 16, 2023)
+
+### 1.11.6 (Aug 16, 2023)
+* Fixed an issue where call will not be properly reconnected after network connection has been lost.
+
+
 ## 1.11.5 (Aug 10, 2023)
 
 ### 1.11.5 (Aug 10, 2023)
