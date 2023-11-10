@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.11.7 (Nov 10, 2023)
+
+### 1.11.7 (Nov 10, 2023)
+* Fix Bluetooth connection issues on Android 11 and below.
+
 ## 1.11.6 (Aug 16, 2023)
 
 ### 1.11.6 (Aug 16, 2023)

@@ -80,7 +80,7 @@ allprojects {
 
 ```groovy
 dependencies {
-    implementation 'com.sendbird.sdk:sendbird-calls:1.11.6'
+    implementation 'com.sendbird.sdk:sendbird-calls:1.11.7'
 }
 ```
 

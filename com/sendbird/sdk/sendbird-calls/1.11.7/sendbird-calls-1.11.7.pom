@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <!-- This module was also published with a richer model, Gradle metadata,  -->
+  <!-- which should be used instead. Do not delete the following line which  -->
+  <!-- is to indicate to Gradle or any Gradle module metadata file consumer  -->
+  <!-- that they should prefer consuming it instead. -->
+  <!-- do_not_remove: published-with-gradle-metadata -->
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.sendbird.sdk</groupId>
+  <artifactId>sendbird-calls</artifactId>
+  <version>1.11.7</version>
+  <packaging>aar</packaging>
+  <name>SendBird Calls Android SDK</name>
+  <description>SendBird is simplest solution for chat and messaging. It enables your app to engage and retain your users in real-time.</description>
+  <url>https://www.sendbird.com/</url>
+  <inceptionYear>2019</inceptionYear>
+  <licenses>
+    <license>
+      <name>SendBird Calls SDK License</name>
+      <url>https://github.com/sendbird/sendbird-calls-android/blob/master/LICENSE.md</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+  <dependencies>
+    <dependency>
+      <groupId>androidx.appcompat</groupId>
+      <artifactId>appcompat</artifactId>
+      <version>1.1.0</version>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>androidx.annotation</groupId>
+      <artifactId>annotation</artifactId>
+      <version>1.0.0</version>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.sendbird.sdk</groupId>
+      <artifactId>sendbird-webrtc</artifactId>
+      <version>1.0.5249</version>
+      <type>aar</type>
+      <scope>runtime</scope>
+      <exclusions>
+        <exclusion>
+          <artifactId>*</artifactId>
+          <groupId>*</groupId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>org.jetbrains.kotlin</groupId>
+      <artifactId>kotlin-stdlib</artifactId>
+      <version>1.9.10</version>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.getkeepsafe.relinker</groupId>
+      <artifactId>relinker</artifactId>
+      <version>1.4.3</version>
+      <scope>runtime</scope>
+    </dependency>
+  </dependencies>
+</project>
