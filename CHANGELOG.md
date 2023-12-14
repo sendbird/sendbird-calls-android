@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.11.9 (Dec 14, 2023)
+
+### 1.11.9 (Dec 14, 2023)
+* When a direct call is ended before connecting, the call will have an end result of DirectCallEndResult.NotConnected.
+
 ## 1.11.8 (Nov 10, 2023)
 
 ### 1.11.8 (Nov 10, 2023)
