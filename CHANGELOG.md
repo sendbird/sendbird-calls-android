@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.11.10 (Dec 21, 2023)
+
+### 1.11.10 (Dec 21, 2023)
+* Remove duplicative dependency of WebRTC to allow simultaneous use of Sendbird Calls and Live SDK
+
 ## 1.11.9 (Dec 14, 2023)
 
 ### 1.11.9 (Dec 14, 2023)
