@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.11.11 (Feb 8, 2024)
+
+### 1.11.11 (Feb 8, 2024)
+* Stability improvements
+
 ## 1.11.10 (Dec 21, 2023)
 
 ### 1.11.10 (Dec 21, 2023)
