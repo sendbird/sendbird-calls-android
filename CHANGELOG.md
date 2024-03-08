@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.11.12 (Mar 8, 2024)
+
+### 1.11.12 (Mar 8, 2024)
+* Fixed the Bluetooth Audio Connection Logic
+
 ## 1.11.11 (Feb 8, 2024)
 
 ### 1.11.11 (Feb 8, 2024)
