@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.11.13 (Mar 14, 2024)
+
+### 1.11.13 (Mar 14, 2024)
+* Updated the WebRTC version to M118
+* Improved WebRTC internal logging
+
 ## 1.11.12 (Mar 8, 2024)
 
 ### 1.11.12 (Mar 8, 2024)
