@@ -1,4 +1,9 @@
 # Changelog
+## 1.11.15 (May 22, 2024)
+
+### 1.11.15 (May 22, 2024)
+* Fixed the issue where onRecordingSucceeded() was called late when local recording succeeded.
+
 ## 1.11.14 (Apr 12, 2024)
 
 ### 1.11.14 (Apr 12, 2024)
