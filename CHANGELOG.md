@@ -1,85 +1,60 @@
 # Changelog
-## 1.11.15 (May 22, 2024)
+### 1.12.0 (Aug 8, 2024)
+* Added `DirectCallLogListQuery.Params.setStartedAt` and `DirectCallLogListQuery.Params.setEndedAt`, which filter the list of direct call logs by the start and end date of the call.
+  * If `startedAt` is set and `endedAt` is not set, the range of the query will be `start_ts <= callLog.startedAt <= min(now, start_ts + 90 days)`.
+  * If `startedAt` is not set and `endedAt` is set, the range of the query will be `end_ts - 90 days <= callLog.startedAt <= end_ts`.
+  * If both `startedAt` and `endedAt` are set, the range of the query will be `start_ts <= callLog.startedAt <= end_ts`.
+  * If both are not set, the range is `90 days ago <= callLog.startedAt <= now`
 
 ### 1.11.15 (May 22, 2024)
 * Fixed the issue where onRecordingSucceeded() was called late when local recording succeeded.
 
-## 1.11.14 (Apr 12, 2024)
-
 ### 1.11.14 (Apr 12, 2024)
 * Fixed the issue where customItems are missing in SendBirdCallListener.onRinging
-
-## 1.11.13 (Mar 14, 2024)
 
 ### 1.11.13 (Mar 14, 2024)
 * Updated the WebRTC version to M118
 * Improved WebRTC internal logging
 
-## 1.11.12 (Mar 8, 2024)
-
 ### 1.11.12 (Mar 8, 2024)
 * Fixed the Bluetooth Audio Connection Logic
-
-## 1.11.11 (Feb 8, 2024)
 
 ### 1.11.11 (Feb 8, 2024)
 * Stability improvements
 
-## 1.11.10 (Dec 21, 2023)
-
 ### 1.11.10 (Dec 21, 2023)
 * Remove duplicative dependency of WebRTC to allow simultaneous use of Sendbird Calls and Live SDK
-
-## 1.11.9 (Dec 14, 2023)
 
 ### 1.11.9 (Dec 14, 2023)
 * When a direct call is ended before connecting, the call will have an end result of DirectCallEndResult.NotConnected.
 
-## 1.11.8 (Nov 10, 2023)
-
 ### 1.11.8 (Nov 10, 2023)
 * Fix kotlin version.
-
-## 1.11.7 (Nov 10, 2023)
 
 ### 1.11.7 (Nov 10, 2023)
 * Fix Bluetooth connection issues on Android 11 and below.
 
-## 1.11.6 (Aug 16, 2023)
-
 ### 1.11.6 (Aug 16, 2023)
 * Fixed an issue where call will not be properly reconnected after network connection has been lost.
 
-
-## 1.11.5 (Aug 10, 2023)
 
 ### 1.11.5 (Aug 10, 2023)
 * Fix an issue where Direct Call quality statistics won't be collected when the call is being reconnected. 
 * Fix an issue where camera would be incorrectly mirrored in Direct Calls. 
 * Added a feature to track push notification delivery status within the SDK.
 
-## 1.11.4 (Aug 2, 2023)
-
 ### 1.11.4 (Aug 2, 2023)
 * Fix an issue where Direct Call's Connection Quality would report 'Unavailable' for a few seconds after connecting the call. 
 
-## v1.11.3 (Jul 31, 2023)
-
 ### 1.11.3 (Jul 31, 2023)
 * Added support for Direct Call quality monitoring in Sendbird Dashboard
-
-## v1.11.2 (Jun 23, 2023)
 
 ### 1.11.2 (Jun 23, 2023)
 * Added `DirectCall.ringingSource`, which indicates the source of the dial event in DirectCall.
 * Added `SendbirdCall.incomingCalls`, which returns a list of incoming calls to the current user.
 
-## v1.11.1 (Jun 16, 2023)
-
 ### 1.11.1 (Jun 16, 2023)
 * Added `DirectCallListener.onCalleeDialReceived` to notify the caller when the calle has received the call. This event listener will be called when the callee has received the `SendBirdCallListener.onRinging` event.
-
-## v1.11.0 (Jun 09, 2023)
 
 ### 1.11.0 (Jun 9, 2023 UTC)
 For 1.11.0, the SDK supports Huawei mobile service(HMS) Push kit for huawei devices.
@@ -89,9 +64,6 @@ For 1.11.0, the SDK supports Huawei mobile service(HMS) Push kit for huawei devi
   * Added `SendBirdCalls.unregisterAllPushTokens(PushTokenType, CompletionHandler)` to unregister all given push token type.
   * Deprecated `SendBirdCalls.registerPushToken(String, Boolean, CompletionHandler)`, `SendBirdCalls.unregisterPushToken(String, CompletionHandler)`, and `SendBirdCalls.unregisterAllPushTokens(CompletionHandler)`.
 * Adjusted the log level of logs that may be misunderstood as indicating serious issues with the SDK.
-
-## v1.10.9-test (Jun 08, 2023)
-
 
 ### 1.10.9 (May 18, 2023 UTC)
 * Added `retrieveMissedDirectCalls()` in SendbirdCall
