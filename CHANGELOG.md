@@ -1,4 +1,8 @@
 # Changelog
+### 1.12.1 (Dec 12, 2024)
+* Added `DirectCall.resumeAudioTrack` and `Participant.resumeAudioTrack`, which resume the audio track for a direct call or a participant in a call.
+  * These methods allow users to restart the audio track if it was paused during the call.
+
 ### 1.12.0 (Aug 8, 2024)
 * Added `DirectCallLogListQuery.Params.setStartedAt` and `DirectCallLogListQuery.Params.setEndedAt`, which filter the list of direct call logs by the start and end date of the call.
   * If `startedAt` is set and `endedAt` is not set, the range of the query will be `start_ts <= callLog.startedAt <= min(now, start_ts + 90 days)`.
