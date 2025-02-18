@@ -1,4 +1,7 @@
 # Changelog
+### 1.12.2 (Feb 17, 2025)
+* Fixed a bug that the end of audio recordings was sometimes cut off on the Galaxy S21 series.
+
 ### 1.12.1 (Dec 12, 2024)
 * Added `DirectCall.resumeAudioTrack` and `Participant.resumeAudioTrack`, which resume the audio track for a direct call or a participant in a call.
   * These methods allow users to restart the audio track if it was paused during the call.
