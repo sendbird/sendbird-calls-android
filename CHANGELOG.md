@@ -1,4 +1,7 @@
 # Changelog
+### 1.12.3 (Mar 13, 2025)
+* Updated WebRTC version to M134 to support Android 16 KB page sizes
+
 ### 1.12.2 (Feb 17, 2025)
 * Fixed a bug that the end of audio recordings was sometimes cut off on the Galaxy S21 series.
 
