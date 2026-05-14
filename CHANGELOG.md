@@ -1,4 +1,9 @@
 # Changelog
+### 1.12.4 (May 14, 2026)
+* Fixed an issue where a remote participant's video tile could remain black, or audio/video state could appear stale, when a participant push event was missed (e.g., right after
+  WebSocket reconnect or when re-entering the same room).
+* Fixed a race where `setVideoView()` called before the remote endpoint was registered would be silently dropped, leaving the video surface permanently unbound.
+
 ### 1.12.3 (Mar 13, 2025)
 * Updated WebRTC version to M134 to support Android 16 KB page sizes
 
