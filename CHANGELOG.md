@@ -1,4 +1,12 @@
 # Changelog
+
+### 1.12.5 (Sep 23, 2026)
+* Fixed crashes in the local recording pipeline. A media codec that is reclaimed or fails during a call no longer ends the process: the recording is stopped and reported through `RecordingListener.onRecordingFailed()`, which arrives after `onRecordingStarted()` has already reported the recording as started.
+* A recording that ends before any data is written to the output file is now reported as a failure rather than a success with an empty file. The SDK deletes that empty file.
+* `stopRecording(recordingId)` now stops a recording only while the recording with that id is still running, and returns `false` otherwise. It previously stopped whichever recording was running, whatever id was passed to it.
+* `onRecordingFailed()` arrives after the SDK has finished cleaning up, which can take up to five seconds. By then `localRecordingStatus` is `NONE` and `stopRecording(recordingId)` returns `false`, so clear recording UI from the `RecordingListener` callbacks rather than from the return value of `stopRecording()`.
+
+
 ### 1.12.4 (May 14, 2026)
 * Fixed an issue where a remote participant's video tile could remain black, or audio/video state could appear stale, when a participant push event was missed (e.g., right after
   WebSocket reconnect or when re-entering the same room).
